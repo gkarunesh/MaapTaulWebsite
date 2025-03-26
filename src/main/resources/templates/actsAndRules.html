@@ -1,0 +1,64 @@
+    <th:block xmlns:th="https://www.thymeleaf.org">
+    <div th:fragment="introduction">
+    <div th:replace="header"></div>
+    <div th:replace="inner-header"></div>
+     	<div class="wrapper" id="skipCont"></div>
+      <!--/#skipCont-->
+      <section id="fontSize" class="wrapper body-wrapper ">
+      <div class="bg-wrapper inner-wrapper">
+      <div class="breadcam-bg breadcam">
+         <div class="container common-container four_content ">
+            <ul>
+               <li><a href="/">Home </a></li>
+               <li><a href="#">Acts &amp; Rules</a></li>
+            </ul>
+         </div>
+      </div>
+      <!--/#page-head-->
+      	<section id="paragraph" class="wrapper paragraph-wrapper" data-ng-app="attachmentApp" data-ng-controller="attachmentCtrl">
+         <div class="content">
+     		<div class="p-2 bd-highlight" style="text-align: center; padding-top: 15px; color: #0095da;"><h2 class="page-title-dec"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> &nbsp;Acts &amp; Rules</h2></div>
+     		<hr style="width: 75%; margin-left: auto; margin-right: auto;">
+    		<!--/#Table-->
+      <section id="tables" class="wrapper tables-wrapper">
+         <div class="container common-container four_content ">
+            <div class="scroller" style="text-align: center;">
+           		<div class="card-block">
+           		   <table class="table  table-bordered table-hover table-condensed responsive m-b-0" data-sortable>
+						<thead class="thead-dark">
+							<tr>
+								<th><b>Sr. no</b></th>
+								<th><b>Date</b></th>
+								<th><b>Group</b></th>
+								<th><b>Description</b></th>
+								<th><b>Document</b></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr data-ng-repeat="event in attachments | filter : {'isNew':'V'} | orderBy:'-entryDate'">
+								<td style="text-align : center">{{$index + 1}}</td>
+								<td style="text-align : center">{{ event.entryDate | date : 'dd/MM/yyyy'}} </td>
+								<td style="text-align : center" data-ng-bind="event.groupOfKindOf"></td>
+								<td style="text-align : center" data-ng-bind="event.description"></td>
+								<td style="text-align : center"><a target="_blank" href="/lmd{{event.sourceUrl}}"  title="View"><i class='fa fa-file-pdf-o'
+										aria-hidden='true' style='color: red;'></i></a></td>
+							</tr>
+						</tbody>
+					</table>
+        		</div>
+            </div>
+         </div>
+      
+      </section>
+      	
+      <!--/.Table End-->	
+        </div>
+     
+      </section>
+             <script type="text/javascript" src="angularjsctrl/getAttatchments.js"></script>
+     
+      <div th:replace="footer"></div>
+      </div>
+      </section>
+      </div>
+     </th:block>

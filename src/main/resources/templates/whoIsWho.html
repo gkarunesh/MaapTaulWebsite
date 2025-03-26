@@ -1,0 +1,171 @@
+    <th:block xmlns:th="https://www.thymeleaf.org">
+    <div th:fragment="introduction">
+    <div th:replace="header"></div>
+    <div th:replace="inner-header"></div>
+     	<div class="wrapper" id="skipCont"></div>
+      <!--/#skipCont-->
+      <section id="fontSize" class="wrapper body-wrapper ">
+      <div class="bg-wrapper inner-wrapper">
+      <div class="breadcam-bg breadcam">
+         <div class="container common-container four_content ">
+            <ul>
+               <li><a href="/">Home </a></li>
+               <li><a href="#">About us</a></li>
+               <li><a href="#">Who is Who</a></li>
+            </ul>
+         </div>
+      </div>
+      <!--/#page-head-->
+      	<section id="paragraph" class="wrapper paragraph-wrapper">
+         <div class="content">
+     		<div class="p-2 bd-highlight" style="text-align: center; padding-top: 15px; color: #0095da;"><h2 class="page-title-dec">Contact details of  <b style="color: #dc3545;">Weights &amp; Measures Division</b> Officers, Inspectors</h2></div>
+     		<hr style="width: 75%; margin-left: auto; margin-right: auto;">
+    		<!--/#Table-->
+      <section id="tables" class="wrapper tables-wrapper" data-ng-app="allOfficersApp" data-ng-controller="allOfficersCtrl">
+         <div class="container common-container four_content ">
+            <div class="scroller" style="text-align: center;">
+            	<!-- Main contents here -->           
+      				<div class="card-block" style="color: #000">
+                                <table class="table  table-bordered table-hover table-condensed responsive m-b-0">
+                                    <thead class="thead-dark">
+                                    <tr>
+										<div class="d-flex justify-content-between bd-highlight mb-3">
+ 											<div class="p-2 bd-highlight"></div>
+ 											<div class="p-2 bd-highlight"><h2 class="page-title-dec">Officers(Headquarter) Patna</h2></div>
+ 											<div class="p-2 bd-highlight">
+ 											<!-- <div class="form-group has-search src-style">
+ 												<span class="fa fa-search form-control-feedback"></span>
+ 												<input class="form-control" style="border-color: chartreuse;" type="text" data-ng-model="any" placeholder="Search keyword...">
+											</div> -->
+ 											</div>
+										</div>
+                                    </tr>
+                                    <tr>
+                                        <th scope='col'><b>Sr. no</b></th>
+                                        <!-- <th scope='col'><b>Headquarter</b></th> -->
+                                        <th scope='col'><b>Name</b></th>
+                                        <th scope='col'><b>Designation</b></th>
+                                        <th scope='col'><b>Contact</b></th>
+                                        <th scope='col'><b>Email</b></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody >
+                                    <tr data-ng-repeat="officer in allOfficersHq">
+                                        <td style="text-align : center">{{$index + 1}}</td>
+                                        <!--<td >Patna</td>  data-ng-bind="officer.divisionCode" -->
+                                        <td width=20% data-ng-bind="officer.name"></td>
+                                        <td style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; max-width: 140px;" data-ng-bind="officer.designation" title="{{officer.desig_id}}"></td>
+                                        <td width=10% data-ng-bind="officer.contact"></td>
+                                        <td width=10% data-ng-bind="officer.email"></td>
+                                     </tr>
+                                    </tbody>
+                                </table>
+                                  <table class="table  table-bordered table-hover table-condensed responsive m-b-0">
+                                    <thead class="thead-dark">
+                                    <tr>
+  											<div class="d-flex justify-content-between bd-highlight mb-3">
+    											<div class="p-2 bd-highlight"></div>
+    											<div class="p-2 bd-highlight"><h2 class="page-title-dec">Officer's(Division)</h2></div>
+    											<div class="p-2 bd-highlight">
+    											</div>
+  											</div>
+                                    </tr>
+                                    <tr>
+                                        <th scope='col'><b>Sr. no</b></th>
+                                        <th scope='col'><b>Name</b></th>
+                                        <th scope='col'><b>Division</b></th>
+                                        <th scope='col'><b>Designation</b></th>
+                                        <th scope='col'><b>Contact</b></th>
+                                        <th scope='col'><b>Email</b></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody >
+                                     <tr data-ng-repeat="officer in allOfficersDiv">
+                                        <td style="text-align : center">{{$index + 1}}</td>
+                                        <td data-ng-bind="officer.name"></td>
+                                        <td data-ng-bind="officer.div_name"></td>
+                                        <td data-ng-bind="officer.designation"></td>                                  
+                                        <td data-ng-bind="officer.contact"></td>
+                                        <td data-ng-bind="officer.email"></td>
+                                       
+                                     </tr> 
+                                    </tbody>
+                                </table>
+                                   <table class="table  table-bordered table-hover table-condensed responsive m-b-0">
+                                    <thead class="thead-dark">
+                                    <tr>
+  											<div class="d-flex justify-content-between bd-highlight mb-3">
+    											<div class="p-2 bd-highlight"></div>
+    											<div class="p-2 bd-highlight"><h2 class="page-title-dec">Officer's(District)</h2></div>
+    											<div class="p-2 bd-highlight">
+    											</div>
+  											</div>
+                                    </tr>
+                                    <tr>
+                                        <th scope='col'><b>Sr. no</b></th>
+                                        <th scope='col'><b>Name</b></th>
+                                       <th scope='col'><b>Division</b></th> 
+                                        <th scope='col'><b>District</b></th>
+                                        <th scope='col'><b>Designation</b></th>
+                                        <th scope='col'><b>Contact</b></th>
+                                        <th scope='col'><b>Email</b></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody >
+                                     <tr data-ng-repeat="officer in allOfficersDis">
+                                        <td style="text-align : center">{{$index + 1}}</td>
+                                        <td data-ng-bind="officer.name"></td>
+                                        <td data-ng-bind="officer.div_name"></td> 
+                                        <td data-ng-bind="officer.dist_name"></td>
+                                        <td data-ng-bind="officer.designation"></td>                                        
+                                        <td data-ng-bind="officer.contact"></td>
+                                        <td data-ng-bind="officer.email"></td>
+                                     </tr> 
+                                    </tbody>
+                                </table>  
+                                   <table class="table  table-bordered table-hover table-condensed responsive m-b-0" data-sortable>
+                                    <thead class="thead-dark">
+                                    <tr>
+  											<div class="d-flex justify-content-between bd-highlight mb-3">
+    											<div class="p-2 bd-highlight"></div>
+    											<div class="p-2 bd-highlight"><h2 class="page-title-dec">Officer's(Sub Division)</h2></div>
+    											<div class="p-2 bd-highlight">
+    											</div>
+  											</div>
+                                    </tr>
+                                    <tr>
+                                        <th scope='col'><b>Sr. no</b></th>
+                                        <th scope='col'><b>Name</b></th>
+                                        <th scope='col'><b>District</b></th>
+                                        <th scope='col'><b>Sub Division</b></th>
+                                        <th scope='col'><b>Designation</b></th>
+                                        <th scope='col'><b>Contact</b></th>
+                                        <th scope='col'><b>Email</b></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody >
+                                     <tr data-ng-repeat="officer in allOfficersSub">
+                                        <td style="text-align : center">{{$index + 1}}</td>
+                                        <td data-ng-bind="officer.name"></td>
+                                        <td data-ng-bind="officer.dist_name"></td> 
+                                        <td data-ng-bind="officer.sub_div_name"></td>
+                                        <td data-ng-bind="officer.designation"></td>                                        
+                                        <td data-ng-bind="officer.contact"></td>
+                                        <td data-ng-bind="officer.email"></td>
+                                     </tr> 
+                                    </tbody>
+                                </table>
+        					</div>
+        <!-- Main content ends here -->
+            </div>
+         </div>
+         <script type="text/javascript" src="angularjsctrl/staffMaaptaul.js"></script>
+      </section>
+      <!--/.Table End-->	
+        </div>
+      </section>
+      <div th:replace="footer"></div>
+      </div>
+      </section>
+      </div>
+     </th:block>

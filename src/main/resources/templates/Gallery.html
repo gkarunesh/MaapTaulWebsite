@@ -1,0 +1,288 @@
+<style>
+.season_tabs {
+  position: relative;   
+  min-height: 900px; 
+  clear: both;
+  margin: 25px 0;
+}
+.season_tab {
+  float: left;  
+  clear: both;
+  width: 286px;
+}
+.season_tab label {
+    background: #eee;
+    padding: 10px;
+    border-right: 2px solid #8bc34a;
+    margin-left: -1px;
+    font-size: 16px;
+    vertical-align: middle;
+    position: relative;
+    left: 1px;
+    width: 264px;
+    height: 68px;
+    display: table-cell;
+}
+.season_tab [type=radio] {
+  display: none;   
+}
+.season_content {
+  position: absolute;
+  top: 0;
+  left: 286px;
+  background: white;
+  right: 0;
+  bottom: 0;
+  padding: 0px;
+ }
+.season_content span {
+  animation: 0.5s ease-out 0s 1 slideInFromTop; 
+}
+[type=radio]:checked ~ label {
+  background: white;
+  border: 1px solid #ccc;
+  z-index: 2;
+}
+[type=radio]:checked ~ label ~ .season_content {
+  z-index: 1;
+}
+</style>
+<style>
+/* The grid: Four equal columns that floats next to each other */
+.column {
+  float: left;
+  padding: 10px;
+}
+
+/* Style the images inside the grid */
+.column img {
+  opacity: 0.8; 
+  cursor: pointer; 
+}
+
+.column img:hover {
+  opacity: 1;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* The expanding image container */
+.container {
+  position: relative;
+  display: none;
+}
+
+/* Expanding image text */
+#imgtext {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  color: white;
+  font-size: 20px;
+}
+
+/* Closable button inside the expanded image */
+.closebtn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: white;
+  font-size: 35px;
+  cursor: pointer;
+}
+</style>
+    <th:block xmlns:th="https://www.thymeleaf.org">
+    <div th:fragment="introduction">
+    <div th:replace="header"></div>
+    <div th:replace="inner-header"></div>
+     	<div class="wrapper" id="skipCont"></div>
+      <!--/#skipCont-->
+      <section id="fontSize" class="wrapper body-wrapper ">
+      <div class="bg-wrapper inner-wrapper">
+      <div class="breadcam-bg breadcam">
+         <div class="container common-container four_content ">
+            <ul>
+               <li><a href="/">Home </a></li>
+               <li><a href="#">Gallery</a></li>
+            </ul>
+         </div>
+      </div>
+      <!--/#page-head-->
+      <section id="paragraph" class="wrapper paragraph-wrapper">
+         <div class="content">
+       		<div class="p-2 bd-highlight" style="text-align: center; padding-top: 15px; color: #0095da;"><h2 class="page-title-dec">Photos / Video / Audio</h2></div>
+       		<hr style="width: 75%; margin-left: auto; margin-right: auto;">
+   			<div style="width: 75%; margin-left: auto; margin-right: auto;">
+   				<div class="season_tabs">    
+				   <div class="season_tab">
+				       <input type="radio" id="tab-1" name="tab-group-1" checked>
+				       <label for="tab-1">Photo Gallery</label>
+				       <div class="season_content">
+				        <div style="text-align : left"><h2 class="page-title-dec">Main Building Inauguration / Sonpur Mela Photos</h2></div>
+				          	<div class="container">
+				          	<!-- The four columns -->
+							<div class="row">
+							  <div class="column">
+							    <img src="images/Gallery/Main_building/main-building-inauguration.jpg" alt="Nature" style="width:75px; height: 75px;" onclick="myFunction(this);">
+							  </div>
+							  <div class="column">
+							    <img src="images/Gallery/Main_building/main-building-inauguration1.jpg" alt="Snow" style="width:75px; height: 75px;" onclick="myFunction(this);">
+							  </div>
+							  <div class="column">
+							    <img src="images/Gallery/Main_building/main-building-inauguration2.jpg" alt="Mountains" style="width:75px; height: 75px;" onclick="myFunction(this);">
+							  </div>
+							  <div class="column">
+							    <img src="images/Gallery/Main_building/main-building-inauguration4.jpg" alt="Lights" style="width:75px; height: 75px;" onclick="myFunction(this);">
+							  </div>
+							  <div class="column">
+							    <img src="images/Gallery/Sonpur_Mela/Sonpur-mela-1.jpg" alt="Nature" style="width:75px; height: 75px;" onclick="myFunction(this);">
+							  </div>
+							  <div class="column">
+							    <img src="images/Gallery/Sonpur_Mela/Sonpur-mela-2.jpg" alt="Snow" style="width:75px; height: 75px;" onclick="myFunction(this);">
+							  </div>
+							  <div class="column">
+							    <img src="images/Gallery/Sonpur_Mela/Sonpur-mela-3.jpg" alt="Mountains" style="width:75px; height: 75px;" onclick="myFunction(this);">
+							  </div>
+							  <div class="column">
+							    <img src="images/Gallery/Sonpur_Mela/Sonpur-mela-5.jpg" alt="Lights" style="width:75px; height: 75px;" onclick="myFunction(this);">
+							  </div>
+							  
+							  </div>
+						</div>
+							<div style="text-align : center"><h2 class="page-title-dec">Legal Metrology workshop/training (2 days) organised in BAMETI during financial year 2019-20</h2></div>
+							<div class="container">
+							<!-- The four columns -->
+								<div class="row">
+								  <div class="column">
+								    <img src="images/Gallery/Bameti Photos/bameti photos.jpg" alt="Nature" style="width:75px; height: 75px;" onclick="myFunction(this);">
+								  </div>
+								  <div class="column">
+								    <img src="images/Gallery/Bameti Photos/bameti photos1.jpg" alt="Snow" style="width:75px; height: 75px;" onclick="myFunction(this);">
+								  </div>
+								 <div class="column">
+								    <img src="images/Gallery/Bameti Photos/bameti photos3.jpg" alt="Lights" style="width:75px; height: 75px;" onclick="myFunction(this);">
+								  </div>
+								  <div class="column">
+								    <img src="images/Gallery/Bameti Photos/bameti photos4.jpg" alt="Lights" style="width:75px; height: 75px;" onclick="myFunction(this);">
+								  </div>
+								  <div class="column">
+								    <img src="images/Gallery/Bameti Photos/bameti photos5.jpg" alt="Lights" style="width:75px; height: 75px;" onclick="myFunction(this);">
+								  </div>
+								  <div class="column">
+								    <img src="images/Gallery/Bameti Photos/bameti photos6.jpg" alt="Lights" style="width:75px; height: 75px;" onclick="myFunction(this);">
+								  </div>
+								  <div class="column">
+								    <img src="images/Gallery/Bameti Photos/bameti photos7.jpg" alt="Lights" style="width:75px; height: 75px;" onclick="myFunction(this);">
+								  </div>
+								</div>
+							</div>
+							<div class="container">
+							  <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+							  <img id="expandedImg" style="width:60%;">
+							  <div id="imgtext"></div>
+							</div>
+							<div style="text-align : center"><h2 class="page-title-dec"> Campaign Photos</h2></div>
+							<div class="container">
+							<!-- The four columns -->
+								<div class="row">
+								  <div class="column">
+								    <img src="images/Gallery/Campaign/camp-photo.jpg" alt="Nature" style="width:75px; height: 75px;" onclick="myFunction(this);">
+								  </div>
+								  <div class="column">
+								    <img src="images/Gallery/Campaign/camp-photo1.jpg" alt="Snow" style="width:75px; height: 75px;" onclick="myFunction(this);">
+								  </div>
+								  <div class="column">
+								    <img src="images/Gallery/Campaign/camp-photo2.jpg" alt="Mountains" style="width:75px; height: 75px;" onclick="myFunction(this);">
+								  </div>
+								  <div class="column">
+								    <img src="images/Gallery/Bameti Photos/bameti photos3.jpg" alt="Lights" style="width:75px; height: 75px;" onclick="myFunction(this);">
+								  </div>
+								  <div class="column">
+								    <img src="images/Gallery/Campaign/camp-photo3.jpg" alt="Lights" style="width:75px; height: 75px;" onclick="myFunction(this);">
+								  </div>
+								  <div class="column">
+								    <img src="images/Gallery/Campaign/camp-photo4.jpg" alt="Lights" style="width:75px; height: 75px;" onclick="myFunction(this);">
+								  </div>
+								  <div class="column">
+								    <img src="images/Gallery/Campaign/camp-photo5.jpg" alt="Lights" style="width:75px; height: 75px;" onclick="myFunction(this);">
+								  </div>
+								  <div class="column">
+								    <img src="images/Gallery/Campaign/camp-photo6.jpg" alt="Lights" style="width:75px; height: 75px;" onclick="myFunction(this);">
+								  </div>
+								  <div class="column">
+								    <img src="images/Gallery/Campaign/camp-photo7.jpg" alt="Lights" style="width:75px; height: 75px;" onclick="myFunction(this);">
+								  </div>
+								</div>
+							</div>
+							</div> 
+						</div> 
+				 <!-- Video -->     
+				   <!-- <div class="season_tab">
+				       <input type="radio" id="tab-2" name="tab-group-1">
+				       <label for="tab-2">Video</label>
+				       <div class="season_content">
+				           <div class="row">
+				  			<div class="col-md-6">
+				  				<video style="width : 400px; height: 200px; padding-right: 30px;"  controls="">
+				      				<source src="images/Gallery/video/maap-taul_con_awareness_video.mp4" type="video/mp4">
+				    			</video>
+				    			<p style="text-align: center; font-size: 14px;">Consumer awareness video</p>
+				    			<p>Consumer awareness video</p>
+				  			</div>
+				  			<div class="col-md-6">
+				  				<video style="width : 300px; height: 200px; padding-left: 10px;" controls="">
+				      				<source src="images/Gallery/video/secretry_speech.mp4" type="video/mp4">
+				    			</video>
+				    			<p style="text-align: center; font-size: 14px;">Secretary Agriculture addressing the workshop seminar organized by the Department of  Weights and Measurements</p>
+				  			</div>
+				  			</div>
+				       </div> 
+				   </div>    -->
+				   
+				   <!-- Audio  -->
+				    <!-- <div class="season_tab">
+				       <input type="radio" id="tab-3" name="tab-group-1">
+				       <label for="tab-3">Audio</label>
+				     
+					<div class="season_content">
+						<div class="row">
+			  			<div class="col-md-6" align="center"><br>
+			  				<audio controls="" id="audio-example">
+			  						<source src="images/audio/consumer-Awareness-Audio.mp3" type="audio/mpeg">
+			  				</audio>
+			  				<p style="text-align: center; font-size: 14px;">Radio Jingle</p>
+			    			<p>Consumer awareness video</p>
+			  			</div>
+			  			<div class="col-md-5" align="center"><br>
+			  				<audio controls="" id="audio-example">
+			  								<source src="images/audio/F_Udghoshana.mp3" type="audio/mpeg">
+									</audio>
+									<p style="text-align: center; font-size: 14px;"> General audio of verification camp</p>
+			    			<p>Consumer awareness video</p>
+			  			</div>
+			  			</div>
+				       </div> 
+				   </div> -->
+				</div>
+   			</div>
+        </div>
+      </section><br><br>
+      <div th:replace="footer"></div>
+      </div>
+      </section>
+      </div>
+     </th:block>
+<script>
+function myFunction(imgs) {
+  var expandImg = document.getElementById("expandedImg");
+  var imgText = document.getElementById("imgtext");
+  expandImg.src = imgs.src;
+  imgText.innerHTML = imgs.alt;
+  expandImg.parentElement.style.display = "block";
+}
+</script>

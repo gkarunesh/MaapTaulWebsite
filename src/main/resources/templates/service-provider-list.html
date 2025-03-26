@@ -1,0 +1,105 @@
+    <th:block xmlns:th="https://www.thymeleaf.org">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css"> 
+  	<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+ 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+ 	<div th:fragment="dealres">
+    <div th:replace="header"></div>
+    <div th:replace="inner-header"></div>
+     	<div class="wrapper" id="skipCont"></div>
+      <!--/#skipCont-->
+      <section id="fontSize" class="wrapper body-wrapper ">
+      <div class="bg-wrapper inner-wrapper">
+      <div class="breadcam-bg breadcam">
+         <div class="container common-container four_content ">
+            <ul>
+               <li><a href="/">Home </a></li>
+               <li><a href="#">About us</a></li>
+               <li><a href="#">Our Dealers</a></li>
+            </ul>
+         </div>
+      </div>
+      <!--/#page-head-->
+      <section id="paragraph" class="wrapper paragraph-wrapper" data-ng-app="serviceProviderApp" data-ng-controller="serviceProviderCtrl">
+         <div class="content">
+       		<div class="p-2 bd-highlight" style="text-align: center; padding-top: 15px; color: #0095da;"><h2 class="page-title-dec"><i class="fa fa-eye" style="font-size:24px; color : black"></i> &nbsp;VIEW <span class="text-danger">Dealers</span> / <span class="text-danger">Manufacturers</span> / <span class="text-danger">Repairers</span> / <span class="text-danger">Packers</span> in your area</h2></div>
+       		<hr style="width: 75%; margin-left: auto; margin-right: auto;"><br>
+   			<div class="mt-4" style="width: 75%; margin-left: auto;">
+   					<div class="row pl-4">
+   					<p class="pl-2" style="font-weight :600; font-size : 16px; color : #0095da;"><i class="fa fa-hand-o-right text-danger" aria-hidden="true"></i> Please Select Service Provider Type :</p>
+   						<div class="col-md-2">
+   							<input type="radio" data-ng-model='provider' value="Dealer" style="margin-bottom : 3px;"> <span style="font-weight :600; font-size : 15px;">&nbsp;Dealer</span>
+   						</div>
+   						<div class="col-md-2">
+   							<input type="radio" data-ng-model='provider' value="Manufacturer" style="margin-bottom : 3px;"> <span style="font-weight :600; font-size : 15px;">&nbsp;Manufacturer</span>
+   						</div>
+   						<div class="col-md-2">
+   							<input type="radio" data-ng-model='provider' value="Repairer" style="margin-bottom : 3px;"> <span style="font-weight :600; font-size : 15px;">&nbsp;Repairer</span>
+   						</div>
+   						<div class="col-md-2">
+   							<input type="radio" data-ng-model='provider' value="Packer" style="margin-bottom : 3px;"> <span style="font-weight :600; font-size : 15px;">&nbsp;Packer</span>
+   						</div>
+   						<br><br>
+   					</div>
+   				    <div class="col-md-12">
+				    	<div class="col-md-4">
+				    		<span style="font-size : 15px;font-weight: 600; color: #e92626">Select District : </span>
+				    		<select class="form-control" data-ng-model="dealerDistrict" data-ng-options="district.distId as district.name for district in districts" data-ng-change="getDealersByDistrict(provider,dealerDistrict)">
+							  <option value="" disabled>--Select--</option>
+							</select>
+				    	</div>
+				    	<div class="col-md-4" data-ng-show="serviceProviders.length >= 0">
+				    	  <span style="font-size : 15px;font-weight: 600; color: #e92626">Select Sub-division :</span>
+				    		<select class="form-control" data-ng-model="dealerSubDivision" data-ng-options="subDiv.subDivId as subDiv.subDivName for subDiv in subDivision" data-ng-change="getDealerBySubDivision(provider,dealerSubDivision)">
+							  <option disabled>Select..</option>
+							</select>
+				    	</div>
+				    	
+				    	<!-- <div class="col-md-4" data-ng-show="serviceProviders.length > 0">
+				    		 <button type="submit" class="btn btn-primary" style="margin-top : 20px" data-ng-click="getDealers(provider,dealerDistrict)" data-ng-disabled="!dealerSubDivision">
+				    		 <i class="fa fa-search" aria-hidden="true"></i> Search</button>
+				    	</div>-->
+				    </div>
+				    <div class="row" data-ng-show="loading" style="text-align : center"><img src="images/others/loading.gif" style="width : 200px; height: 150px;"></div>
+				 <br><br>
+				 <br>				 
+   			</div><br>
+   				<div class="alert alert-danger alert-dismissible fade show" data-ng-show="serviceProviders.length==0" style="width : 50%; margin-left: auto; margin-right: auto;">
+				    <button type="button" class="close" data-dismiss="alert">&times;</button>
+				      <div class="text-center" style="font-size : 16px; font-weight : 600; color : red">{{result}}</div>
+				</div>
+   			<div class="container-fluid">
+   			<table class="table" data-ng-show="serviceProviders.length>0">
+   				<thead>
+   				<tr>
+   					<th scope="col" style="background : #71aef0"><b>Sr. No</b></th>
+   					<th scope="col" style="background : #71aef0"><b>Business Name</b></th>
+   					<th scope="col" style="background : #71aef0"><b>Address 1</b></th>
+   					<th scope="col" style="background : #71aef0"><b>Address 2</b></th>
+   					<th scope="col" style="background : #71aef0"><b>Landmark</b></th>
+   					<th scope="col" style="background : #71aef0"><b>Contact</b></th>
+   					<th scope="col" style="background : #71aef0"><b>Email</b></th>
+   					
+   				</tr>
+   				</thead>
+   				<tbody>
+   				<tr data-ng-repeat="sp in serviceProviders">
+					<th scope="row">{{$index+1}}.</th>
+					<td data-ng-bind="sp.dealerName || sp.repairerName ||sp.name || sp.firmName"></td>
+					<td data-ng-bind="sp.address1 ||sp.firmAdd1"></td>
+					<td data-ng-bind="sp.address2 || sp.firmAdd2"></td>
+					<td data-ng-bind="sp.landmark"></td>
+					<td data-ng-bind="sp.mobileNo || sp.mobile"></td>
+					<td data-ng-bind="sp.emailId || sp.email"></td>
+					
+				</tr>
+				</tbody>
+   			</table>   			
+   			</div>
+        </div>
+      </section>
+      <script type="text/javascript" src="angularjsctrl/service-providerCtrl.js"></script>
+      <div th:replace="footer"></div>
+      </div>
+      </section>
+      </div>
+     </th:block>

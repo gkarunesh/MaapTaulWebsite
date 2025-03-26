@@ -1,0 +1,59 @@
+    <th:block xmlns:th="https://www.thymeleaf.org">
+    <div th:fragment="introduction">
+    <div th:replace="header"></div>
+    <div th:replace="inner-header"></div>
+     	<div class="wrapper" id="skipCont"></div>
+      <!--/#skipCont-->
+      <section id="fontSize" class="wrapper body-wrapper ">
+      <div class="bg-wrapper inner-wrapper">
+      <div class="breadcam-bg breadcam">
+         <div class="container common-container four_content ">
+            <ul>
+               <li><a href="/">Home </a></li>
+               <li><a href="#">Grievance</a></li>
+               <li><a href="#">Complaint Counter</a></li>
+            </ul>
+         </div>
+      </div>
+      <!--/#page-head-->
+      	<section id="paragraph" class="wrapper paragraph-wrapper">
+         <div class="content">
+     		<div class="p-2 bd-highlight" style="text-align: center; padding-top: 15px; color: #0095da;"><h2 class="page-title-dec"><i class="fa fa-list-ol" aria-hidden="true"></i> Complaint Counter</h2></div>
+     		<hr style="width: 75%; margin-left: auto; margin-right: auto;">
+    		<!--/#Table-->
+      <section id="tables" class="wrapper tables-wrapper" data-ng-app="grievanceApp" data-ng-controller="grievanceCtrl">
+         <div class="container common-container four_content" style="width: 70%;">
+            <div class="scroller">
+           		<div class="card-block">
+                   <table cellspacing="0" cellpadding="0">
+                  <tbody>
+                     <tr>									
+						<th><b>Sr. No</b></th>
+						<th><b>Date</b></th>
+						<th><b>Grievance Received</b></th>
+						<th><b>Action Taken</b></th>
+						<th><b>Total</b></th>
+						
+					</tr>
+                    <tr style="font-weight:bold;" data-ng-repeat="c in count | orderBy : date : 'dd-MM-yyyy'">
+						<td>{{$index + 1}}</td>
+						<td>{{c.gdate | date : 'dd-MM-yyyy'}}</td>
+						<td style="cursor:pointer; width : 10%;" title="Click here to view recieved grievances." data-toggle="modal"  data-ng-click='viewRGrievance(c.param1)' data-target="#viewReceivedGrivance"><a > {{ c.reg }} </a></td>
+						<td style="cursor:pointer; width : 10%;" title="Click here to view action taken grievances." data-toggle="modal" data-ng-click='viewATGrievance(c.param1)' data-target="#viewReceivedGrivance"><a >{{ c.atg }}</a></td>
+						<td>{{c.tot}}</td>
+					</tr> 
+                   	</tbody>
+               		</table>
+        		</div>
+            </div>
+         </div>
+      </section>
+      <script type="text/javascript" src="angularjsctrl/grivancesCtrl.js"></script>
+      <!--/.Table End-->	
+        </div>
+      </section>
+      <div th:replace="footer"></div>
+      </div>
+      </section>
+      </div>
+     </th:block>

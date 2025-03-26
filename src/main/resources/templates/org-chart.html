@@ -1,0 +1,31 @@
+    <th:block xmlns:th="https://www.thymeleaf.org">
+    <div th:fragment="introduction">
+    <div th:replace="header"></div>
+    <div th:replace="inner-header"></div>
+     	<div class="wrapper" id="skipCont"></div>
+      <!--/#skipCont-->
+      <section id="fontSize" class="wrapper body-wrapper ">
+      <div class="bg-wrapper inner-wrapper">
+      <div class="breadcam-bg breadcam">
+         <div class="container common-container four_content ">
+            <ul>
+               <li><a href="/">Home </a></li>
+               <li><a href="#">About us</a></li>
+               <li><a href="#">Organization Chart</a></li>
+            </ul>
+         </div>
+      </div>
+      <!--/#page-head-->
+      <section id="paragraph" class="wrapper paragraph-wrapper">
+         <div class="content">
+       		<div class="p-2 bd-highlight" style="text-align: center; padding-top: 15px; color: #0095da;"><h2 class="page-title-dec">Organization Chart</h2></div>
+       		<hr style="width: 75%; margin-left: auto; margin-right: auto;">
+   			<div style="width: 75%; margin-left: auto; margin-right: auto;">
+   			<img src="assets/images/orgStr.jpg" class="img-fluid" style="border: double;color: #e7f2f7;border-radius: 8px" alt="orgChart"></div>
+        </div>
+      </section>
+      <div th:replace="footer"></div>
+      </div>
+      </section>
+      </div>
+     </th:block>

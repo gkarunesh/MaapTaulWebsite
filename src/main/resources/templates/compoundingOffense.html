@@ -1,0 +1,91 @@
+    <th:block xmlns:th="https://www.thymeleaf.org">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">   
+    <div th:fragment="introduction">
+    <div th:replace="header"></div>
+    <div th:replace="inner-header"></div>
+     	<div class="wrapper" id="skipCont"></div>
+      <!--/#skipCont-->
+      <section id="fontSize" class="wrapper body-wrapper ">
+      <div class="bg-wrapper inner-wrapper">
+      <div class="breadcam-bg breadcam">
+         <div class="container common-container four_content ">
+            <ul>
+               <li><a href="/l">Home </a></li>
+               <li><a href="#">Consumer's Corner</a></li>
+               <li><a href="#">Compounding Offense</a></li>
+            </ul>
+         </div>
+      </div>
+      <!--/#page-head-->
+      	<section id="paragraph" class="wrapper paragraph-wrapper" data-ng-app="offenceApp" data-ng-controller="offencesCtrl">
+         <div class="content">
+     		<div class="p-2 bd-highlight" style="text-align: center; padding-top: 15px; color: #0095da;"><h2 class="page-title-dec"><i class="fa fa-list" aria-hidden="true"></i>&nbsp; List of Offences under Legal Metrology Act 2009 & Rules made there in</h2></div>
+     		<hr style="width: 75%; margin-left: auto; margin-right: auto;">
+    		<!--/#Table-->
+      <section id="tables" class="wrapper tables-wrapper">
+         <div class="container common-container four_content ">
+            <div class="scroller" style="text-align: center;">
+               <table cellspacing="0" cellpadding="0">
+                  <tbody>
+                     <tr>
+						<th><b>S.No</b></th>
+						<th><b>Offense S.No</b></th>
+						<th><b>District</b></th>
+						<th><b>Office Address</b></th>
+						<th><b>Trader address</b></th>
+						<th><b>Violation Under Act &amp; Rule</b></th>
+					</tr>
+                    <tr data-ng-repeat="offense in offenses | filter:any | orderBy:'district'">
+						<td>{{$index + 1}}</td>
+						<td data-ng-bind="offense.sl_no"></td>
+						<td data-ng-bind="offense.district"></td>
+						<td data-ng-bind="offense.office_address"></td>
+						<td data-ng-bind="offense.trader_address"></td>
+						<td data-ng-bind="offense.act_rule"></td>
+					</tr> 
+				 </tbody>
+               </table>
+               <table>
+               	<tr>
+               			<td colspan="6" style="text-align: left; font-weight: bold;">Page
+								{{pageNo+1}}/{{totalPages}}</td>
+							
+							<td colspan="3" style="text-align: right; font-weight: bold;">Record : 
+							{{(pageNo*dataSize)+offenses.length}}/{{totalItems}}</td>
+               		<td>
+               		<!--bootstrap pagignation  -->
+						<nav aria-label="Page navigation example"
+							data-ng-hide="totalPages<=1">
+							<ul class="pagination justify-content-end">
+								<li class="page-item" data-ng-click="previousPage()"
+									data-ng-disabled="pageNo===0"><a class="page-link"
+									href="#" tabindex="-1">Previous</a></li>
+								<li class="page-item" data-ng-click="pageExact(pageNo)"
+									data-ng-hide="(pageNo)>(totalPages-1)"><a
+									class="page-link" href="#">{{pageNo+1}}</a></li>
+								<li class="page-item" data-ng-click="pageExact(pageNo+1)"
+									data-ng-hide="(pageNo+1)>(totalPages-1)"><a
+									class="page-link" href="#">{{pageNo+2}}</a></li>
+								<li class="page-item" data-ng-click="pageExact(pageNo+2)"
+									data-ng-hide="(pageNo+2)>(totalPages-1)"><a
+									class="page-link" href="#">{{pageNo+3}}</a></li>
+								<li class="page-item" data-ng-click="nextPage()"
+									data-ng-disabled="pageNo===totalPages-1"><a
+									class="page-link" href="#">Next</a></li>
+							</ul>
+						</nav>
+               		</td>
+               	</tr>
+               </table>
+            </div>
+         </div>
+      </section>
+      <!--/.Table End-->	
+        </div>
+      </section>
+      <script type="text/javascript" src="angularjsctrl/compoundingOffencesCtrl.js"></script>
+      <div th:replace="footer"></div>
+      </div>
+      </section>
+      </div>
+     </th:block>

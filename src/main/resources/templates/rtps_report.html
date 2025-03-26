@@ -1,0 +1,74 @@
+    <th:block xmlns:th="https://www.thymeleaf.org">
+    <div th:fragment="introduction">
+    <div th:replace="header"></div>
+    <div th:replace="inner-header"></div>
+     	<div class="wrapper" id="skipCont"></div>
+      <!--/#skipCont-->
+      <section id="fontSize" class="wrapper body-wrapper ">
+      <div class="bg-wrapper inner-wrapper">
+      <div class="breadcam-bg breadcam">
+         <div class="container common-container four_content ">
+            <ul>
+               <li><a href="/">Home </a></li>
+               <li><a href="#">Application Progress Report</a></li>
+            </ul>
+         </div>
+      </div>
+      <!--/#page-head-->
+      	<section id="paragraph" class="wrapper paragraph-wrapper">
+         <div class="content">
+     		<div class="p-2 bd-highlight" style="text-align: center; padding-top: 15px; color: #0095da;"><h2 class="page-title-dec"><i class="fa fa-line-chart" aria-hidden="true"></i> &nbsp;Application Progress Report</h2></div>
+     		<hr style="width: 75%; margin-left: auto; margin-right: auto;">
+    		<!--/#Table-->
+      <section id="tables" class="wrapper tables-wrapper" data-ng-app="rtpsApp" data-ng-controller="rtpsCtrl">
+       	<div class="row" data-ng-show="loading" style="text-align : center"><img src="images/others/loading.gif" style="width : 200px; height: 150px;"></div>
+   			<div class="col-md-12" id="contentPage">
+	     	<div class="content myNewResponsibleTable border border-secondary">
+				<table class="text-center">
+				    <thead class="text-white" data-ng-show="eventData.length > 0">
+				      <tr>
+				        <th rowspan="2">Sr No.</th>
+				        <th rowspan="2">Department Name</th>
+				        <th rowspan="2">Name of Service</th>
+				        <th rowspan="2">Total No. of Applications Received</th>
+				        <th colspan="2">Total No. of Applications Approved</th>
+				        <th colspan="2">Total No. of Applications Pending</th>
+				        <th rowspan="2">Average Time Taken to Obtain Registration/Renewal</th>
+				        <th rowspan="2">Median Time Taken to Obtain Registration/Renewal</th>
+				        <th rowspan="2">Maximum Time Taken to Obtain Registration/Renewal</th>
+				      </tr>
+				      <tr>
+				        <th>Within Timeline</th>
+				        <th>Outside Timeline</th>
+				        <th>Within Timeline</th>
+				        <th>Outside Timeline</th>
+				      </tr>
+				    </thead>
+				    <tbody>
+				      <tr data-ng-repeat="data in eventData">
+				        <td><span class="badge badge-primary" data-ng-bind="$index+1"></span></td>
+				        <td>Weight and Measure Department</td>
+				        <td data-ng-bind="data.nameOfService"></td>
+				        <td data-ng-bind="data.applications"></td>
+				        <td data-ng-bind="data.withIntime"></td>
+				        <td data-ng-bind="data.outSideTime"></td>
+				        <td data-ng-bind="data.withIntime2"></td>
+				        <td data-ng-bind="data.outSideTime2"></td>
+				        <td data-ng-bind="data.avrageTime"></td>
+				        <td data-ng-bind="data.minTime"></td>
+				        <td data-ng-bind="data.maxTime"></td>
+				      </tr>
+				    </tbody>
+				  </table>
+	        </div>
+      	</div>
+      </section>
+      <script type="text/javascript" src="angularjsctrl/reportCtrl.js"></script>
+      <!--/.Table End-->	
+        </div>
+      </section>
+      <div th:replace="footer"></div>
+      </div>
+      </section>
+      </div>
+     </th:block>

@@ -1,0 +1,57 @@
+    <th:block xmlns:th="https://www.thymeleaf.org">
+    <div th:fragment="introduction">
+    <div th:replace="header"></div>
+    <div th:replace="inner-header"></div>
+     	<div class="wrapper" id="skipCont"></div>
+      <!--/#skipCont-->
+      <section id="fontSize" class="wrapper body-wrapper ">
+      <div class="bg-wrapper inner-wrapper">
+      <div class="breadcam-bg breadcam">
+         <div class="container common-container four_content ">
+            <ul>
+               <li><a href="/">Home </a></li>
+               <li><a href="#">Consumer's corner</a></li>
+               <li><a href="#">View Feedback</a></li>
+            </ul>
+         </div>
+      </div>
+      <!--/#page-head-->
+      	<section id="paragraph" class="wrapper paragraph-wrapper">
+         <div class="content">
+     		<!--/#Table-->
+		      <section id="paragraph" class="wrapper paragraph-wrapper" data-ng-app="ratingApp" data-ng-controller="ratingCtrl">
+		         <div class="content">
+		        		<div class="p-2 bd-highlight" style="text-align: center; padding-top: 15px; color: #0095da;"><h2 class="page-title-dec"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>&nbsp;User experience</h2></div>
+		        		<hr style="width: 75%; margin-left: auto; margin-right: auto;">
+		    			<div style="width: 75%; margin-left: auto; margin-right: auto;">
+		    			<div class="content" style="width: 85%;margin-left: auto;margin-right: auto;">
+		              <div class="card" style="width: 100%; box-shadow: 1px 1px darkgrey; background-image: url(images/others/feedbackBackground.jpg)" data-ng-repeat="rating in ratings | filter:any">
+				      <div class="row">
+				        <div class="col-md-3" style="padding: 10px 0px 0px 25px;">
+				            <h3 class="card-title" data-ng-bind="rating.name" style="color: #f14f35; font-weight: 600"></h3>
+				            <span style="color: blue; font-size: 15px" data-ng-bind="rating.dateT | date:'dd-MM-yyyy'"></span>
+				          </div>
+				          <div class="col-md-8 px-3" style="padding-top: 6px">
+				           <span style="color: #000; font-size: 15px" data-ng-bind="rating.remarks"></span><br><hr style="margin: 3px 0px; background: orange">
+				           <span style="color: blue; font-size: 15px">Design : </span> <span style="color: blue; font-size: 15px" data-ng-bind="rating.rateOnDesign"></span><img src="images/others/5-star.png" alt="rating" style="width: 23px; height: 20px; padding-bottom: 4px"><span style="color: red">&nbsp; | &nbsp;</span>
+				           <span style="color: blue; font-size: 15px">User Friendly : </span><span style="color: blue; font-size: 15px" data-ng-bind="rating.rateOnFriendly"></span><img src="images/others/5-star.png" alt="rating" style="width: 23px; height: 20px; padding-bottom: 4px"> <span style="color: red">&nbsp;| &nbsp;</span>
+				           <span style="color: blue; font-size: 15px">Performance : </span><span style="color: blue; font-size: 15px" data-ng-bind="rating.rateOnPerformance"></span><img src="images/others/5-star.png" alt="rating" style="width: 23px; height: 20px; padding-bottom: 4px"><br>
+				           <span style="color: blue; font-size: 15px">Content : </span><span style="color: blue; font-size: 15px" data-ng-bind="rating.rateOnContent"></span><img src="images/others/5-star.png" alt="rating" style="width: 23px; height: 20px; padding-bottom: 4px"><span style="color: red">&nbsp; | &nbsp;</span>
+				           <span style="color: blue; font-size: 15px">Overall Rating : </span><span style="color: blue; font-size: 15px" data-ng-bind="rating.overallRating"></span><img src="images/others/5-star.png" alt="rating" style="width: 23px; height: 20px; padding-bottom: 4px"><span style="color: red">&nbsp; | &nbsp;</span>
+				           <span style="color: blue; font-size: 15px">ATR : </span><span style="color: blue; font-size: 15px" data-ng-bind="rating.rateOnATR"></span><img src="images/others/5-star.png" alt="rating" style="width: 23px; height: 20px; padding-bottom: 4px">
+				          </div>
+				       </div>
+				      </div>
+		      		</div>
+		    	</div>
+		       </div>
+		      </section><br><br>
+		      <script type="text/javascript" src="angularjsctrl/ratingCtrl.js"></script>
+      <!-- Table End -->	
+        </div>
+      </section>
+      <div th:replace="footer"></div>
+      </div>
+      </section>
+      </div>
+     </th:block>

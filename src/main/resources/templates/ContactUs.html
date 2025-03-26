@@ -1,0 +1,107 @@
+    <th:block xmlns:th="https://www.thymeleaf.org">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">   
+    <div th:fragment="introduction">
+    <div th:replace="header"></div>
+    <div th:replace="inner-header"></div>
+     	<div class="wrapper" id="skipCont"></div>
+      <!--/#skipCont-->
+      <section id="fontSize" class="wrapper body-wrapper ">
+      <div class="bg-wrapper inner-wrapper">
+      <div class="breadcam-bg breadcam">
+         <div class="container common-container four_content ">
+            <ul>
+               <li><a href="/">Home </a></li>
+               <li><a href="#">Contact Us</a></li>
+            </ul>
+         </div>
+      </div>
+      <!--/#page-head-->
+      <section id="paragraph" class="wrapper paragraph-wrapper">
+         <div class="content">
+       		<div class="p-2 bd-highlight" style="text-align: center; padding-top: 15px; color: #0095da;"><h2 class="page-title-dec"><i class="fa fa-phone-square" aria-hidden="true"></i>&nbsp; Contact Us</h2></div>
+       		<hr style="width: 90%; margin-left: auto; margin-right: auto;">
+   			<div style="width: 100%; margin-left: auto; margin-right: auto;">
+   				<section id="tables" class="wrapper tables-wrapper" data-ng-app="grievanceApp" data-ng-controller="grievanceCtrl">
+		         <div class="container common-container four_content ">
+		            <div class="scroller" style="text-align: center;">
+		               <table>
+		                  <tbody>
+		                  <tr>
+		                  	<h2 style="color : darkblue; text-shadow: 1px 1px #74e605">Contact Details of Secretary, Department of Agriculture </h2>
+		                  </tr>
+		                     <thead class="thead-dark">
+		                        <tr>
+		                        	<th scope='col'><b>Name/Designation</b></th>
+		                            <th scope='col'><b> Office Address</b></th>
+		                             <th scope='col'><b>Email</b></th>
+		                            <th scope='col'><b>Contact no.</b></th>
+		                            <th scope='col'><b>Fax</b></th>
+		                        </tr>
+		                      </thead>
+		                       <tr>
+		                       	   <td align="center" data-ng-repeat="secretary in officers" data-ng-if="secretary.designation=='Secretary'"><span style="font-weight: bold;" data-ng-bind="secretary.name"></span><br>Secretary</td>
+		                           <td align="Left">Krishi Bhawan, Mithapur , Patna - 800015</td>                                  
+		                           <td align="center">agridep-bih@nic.in</td>
+		                           <td align="center">0612-2215373</td>
+		                           <td align="center">0612-2217365</td>
+		                        </tr>
+		                                    
+		                 </tbody>
+		               </table>
+		               <table cellspacing="0" cellpadding="0">
+		                  <tbody>
+		                  <tr>
+		                  	<h2 style="color : darkblue; text-shadow: 1px 1px #74e605">Contact Details of Director, Department of Agriculture </h2>
+		                  </tr>
+		                     <tr>
+		                      	  <th scope='col'><b>Name/Designation</b></th>
+		                          <th scope='col'><b>Office Address</b></th>
+		                          <th scope='col'><b>Email</b></th>
+		                          <th scope='col'><b>Landline / Mobile no.</b></th>
+		                          <th scope='col'><b>Fax</b></th>
+		                      </tr>
+		                      <tr >
+		                          <td align="center" data-ng-repeat="director in officers" data-ng-if="director.designation=='Director'"><span style="font-weight: bold;" data-ng-bind="director.name"></span><br>Director</td>
+		                          <td align="Left">Krishi Bhawan, Mithapur , Patna - 800015</td>                                  
+		                          <td align="center">diragri-bih@nic.in<br>diragri.bih@gmail.com</td>
+		                          <td align="center">0612-2215895<br>9431818704</td>
+		                          <td align="center">0612-2204245</td>
+		                       </tr>
+		                  </tbody>
+		               </table>
+		               <div class="row justify-content-center" data-ng-show="loading"><img src="images/others/loading.gif" style="width : 150px; height: 100px;"></div>
+		               <h2 style="color : darkblue; text-shadow: 1px 1px #74e605">Legal Metrology Officers </h2>
+		               <table cellspacing="0" cellpadding="0" data-ng-show="contacts.length > 0">
+		            	  <thead>
+	                       			<th scope='col'>Sr. no</th>
+	                        		<th scope='col'>Designation</td>
+	                        		<th scope='col'>Officer Name</td>
+	                        		<th scope='col'>Mobile</td>
+	                        		<th scope='col'>Email</td>
+	                        		<th scope='col'><b>Region</b></th>
+	                        		<!-- <th scope='col'><b>Map</b></th> -->
+	                        	</thead>
+		                        <tbody>
+			                      	<tr data-ng-repeat="person in contacts">
+			                    		<td style="text-align :center">{{$index + 1}}</td>
+	                         			<td style="text-align :center" data-ng-bind="person.designation"></td>
+	                         			<td style="text-align :center" data-ng-bind="person.name"></td>
+	                         			<td data-ng-bind="person.contact"></td>
+	                         			<td style="text-align :center" data-ng-bind="person.email"></td>
+	                         			<td style="text-align :center" data-ng-bind="person.location_name"></td>
+	                         			<!-- <td style="text-align: center; cursor: pointer;"><a data-ng-click=displayMap(contact.mapScript) data-toggle="modal" data-target="#myModal"><img alt="Location on Map" src="images/map.png"></a></td> -->
+			                    	</tr>
+			                     </tbody>
+		               </table>
+		         </div>
+		         </div>
+		      </section>
+		      <script type="text/javascript" src="angularjsctrl/grivancesCtrl.js"></script>
+   			</div>
+        </div>
+      </section>
+      <div th:replace="footer"></div>
+      </div>
+      </section>
+      </div>
+     </th:block>

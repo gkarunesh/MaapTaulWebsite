@@ -1,0 +1,47 @@
+    <th:block xmlns:th="https://www.thymeleaf.org">
+    <div th:fragment="introduction">
+    <div th:replace="header"></div>
+    <div th:replace="inner-header"></div>
+     	<div class="wrapper" id="skipCont"></div>
+      <!--/#skipCont-->
+      <section id="fontSize" class="wrapper body-wrapper ">
+      <div class="bg-wrapper inner-wrapper">
+      <div class="breadcam-bg breadcam">
+         <div class="container common-container four_content ">
+            <ul>
+               <li><a href="/">Home </a></li>
+               <li><a href="#">Terms of Use</a></li>
+            </ul>
+         </div>
+      </div>
+      <!--/#page-head-->
+      <section id="paragraph" class="wrapper paragraph-wrapper">
+         <div class="content">
+        		<div class="p-2 bd-highlight" style="text-align: center; padding-top: 15px; color: #0095da;"><h2 class="page-title-dec">Disclaimer</h2></div>
+        		<hr>
+    			<div style="width: 75%; display:inline; float:left; padding-left: 100px; padding-right: 20px">
+    			<p>This website has been designed, developed and hosted by <u><a href="https://bihar.nic.in/" style="color: red">National Informatics Centre, BRSC</a></u> 
+    			, NIC Bhawan, Suchna Parisar, Bailey Road, Patna. The contents are prepared by Govt. of Bihar and 
+    			NIC assumes no responsibility for correctness of textual or graphical information presented here.</p>
+        	
+        	<br>
+       	
+        <br>
+     		 
+		<br><br><br><br>
+		</div>
+		<div style="width: auto; display:inline; float:right; margin-right: 20px; padding: 20px; background: #f2f2f2; border-radius: 5px;">
+			<div style="text-align: center">
+         		<span style="font-size: 18px; font-weight: 600; float: center; color: #0095da;"><i class="fa fa-home"></i> &nbsp;Office Address</span><hr>
+         	</div>
+         	<div style="text-align: left;">
+         		Weights & Measures Office, Raja Bazar<br> P.O.- Bihar Veterinary College<br> Patna-800014<br>
+         	</div>	
+		</div>
+	</div>
+      </section>
+      <div th:replace="footer"></div>
+      </div>
+      </section>
+      </div>
+     </th:block>

@@ -1,0 +1,125 @@
+    <th:block xmlns:th="https://www.thymeleaf.org">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>  
+    <style>
+    #statusDiv{
+    	margin-left: auto;
+    	margin-right: auto;
+    	color: red;
+    	text-align: center;
+	}
+    </style>
+     <script type="text/javascript">
+        function Validate()
+        {
+        var charactersOnly = chkStr.value;
+        if (charactersOnly.search(/^[a-zA-Z]+$/) === -1)
+        {
+            alert("Only english characters!");
+            charactersOnly.value = "";
+            }
+        }
+    </script>
+    
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css"> 
+    <div th:fragment="introduction">
+    <div th:replace="header"></div>
+    <div th:replace="inner-header"></div>
+     	<div class="wrapper" id="skipCont"></div>
+      <!--/#skipCont-->
+      <section id="fontSize" class="wrapper body-wrapper ">
+      <div class="bg-wrapper inner-wrapper">
+      <div class="breadcam-bg breadcam">
+         <div class="container common-container four_content ">
+            <ul>
+               <li><a href="/">Home </a></li>
+               <li><a href="#">Grivance Entry</a></li>
+            </ul>
+         </div>
+      </div>
+      <!--/#page-head-->
+      	<section id="paragraph" class="wrapper paragraph-wrapper">
+         <div class="content">
+     		<div class="p-2 bd-highlight" style="text-align: center; padding-top: 15px; color: #0095da;"><h2 class="page-title-dec">Register your complaint</h2></div>
+     		<hr style="width: 75%; margin-left: auto; margin-right: auto;">
+    		<!--/#Table-->
+      <section id="tables" class="wrapper tables-wrapper" data-ng-app="grievanceApp" data-ng-controller="grievanceCtrl">
+         <div class="container common-container four_content ">
+            <div class="scroller">
+            <div style="width: 45%; margin-left: auto; margin-right: auto;">
+           		<div class="card-block">
+                   <form name="grievance">
+                   		<div class="col-md-12" style="border : 1px solid #ccc; padding : 20px 20px 50px 20px; border-radius : 5px; background : #fbfbfb;">
+							<div class="form-group s1 input">
+				  				<label for="exampleInputUsername required">Name<span class="asterisk_input">  </span></label>
+						    	<input type="text" class="form-control" data-ng-model="newAtr.name" data-ng-pattern="namePattern" id="group" placeholder=" Enter name..." name="name" required>
+					  		</div>
+					  		<label>Select District<span class="asterisk_input"></span></label>
+	                        <select class="form-control" data-ng-model="newAtr.district" data-ng-options="district.value as district.name for district in districts" required>
+								<option value="">--Select--</option>
+							</select>
+					  		<div class="form-group s1 input">
+				  				<label >Address</label>
+						    	<input type="text" class="form-control" data-ng-model="newAtr.address" id="group" placeholder=" Enter address">
+					  		</div>
+					  		<div class="row">
+					  			<div class="col-md-7">
+					  				<label >Mobile<span class="asterisk_input"></span></label>
+						    		<input type="tel" class="form-control mobile" data-ng-model="newAtr.mobile" id="phone" name="phone" placeholder=" Enter contact no" maxlength="10" data-ng-pattern="mobilePattern" required>
+					  			</div>
+					  			<div class="col-md-3 pt-4">
+					  				<button data-ng-click="generateOtp()" type="button" class="btn btn-warning submit submit_btn form-control" data-ng-disabled="(grievance.name.$invalid||grievance.district.$invalid || grievance.phone.$invalid)">
+					  					<i class="fa fa-paper-plane" aria-hidden="true"></i> GET OTP 
+					  				</button>
+					  			</div>
+					  		</div>
+					  		<div id="statusDiv">{{submitStatus}}</div>
+					  		<div class="row" data-ng-show="otpVerification">
+						  		<div class="col-md-7 form-group s2 input">
+							  		<label >OTP<span class="asterisk_input"></span></label>
+								    	<input type="text" class="form-control" data-ng-model="newAtr.otp" maxlength="4" id="group" placeholder=" Enter otp provided">					    	
+							  	</div>
+							  	<div class="col-md-3">
+							  		<label><b>&nbsp;</b></label>
+							  		<button data-ng-click="verifyOtp()" type="button" class="btn btn-success w-50l">
+							  		<i class="fa fa-paper-plane" aria-hidden="true" ></i> Verify OTP </button>
+							  	</div>
+						  	</div>
+			  				
+						  	<div data-ng-show = lodgeGrievance>
+						  	<input type="hidden" data-ng-model="newAtr.sotp">
+						  	<input type="hidden" data-ng-model="newAtr.ackNo">
+						  		<div class="form-group s2 input">
+					  				<label >Email<span class="asterisk_input"></span></label>
+							    	<input name="email" type="email" class="form-control" data-ng-model="newAtr.email" id="group" placeholder=" Enter email id"  required>					    	
+						  		</div>
+						  		<label>Select nature of complaint<span class="asterisk_input"></span></label>
+	                        	<select class="form-control" data-ng-model="newAtr.nature" data-ng-options="nature.nature_code as nature.nature_name for nature in natures" required>
+									<option value="">--Select--</option>
+								</select>
+						  		<div class="form-group">
+					  				<label >Complaint<span class="asterisk_input"></span></label>
+					  			 	<!-- <textarea name="newAtr.grievance" onkeyup="isAlphabetic()"  data-ng-pattern="pattern" data-ng-model="newAtr.grievance" id="newAtr.grievance" maxlength="250" placeholder="Enter query..." required></textarea> -->
+					  			 	<textarea data-ng-model="newAtr.grievance" class="form-control" onkeyup="Validate()" id="chkStr" maxlength="250" placeholder="Enter query..."></textarea>
+					  			</div>
+					  			<div style="text-align: center"> 						
+		  							<button data-ng-click="updateGrievance()" type="button" class="btn btn-success w-25"
+		  								data-ng-disabled="(grievance.email.$invalid || grievance.query.$invalid || grievance.nature.$invalid)">
+		  							<i class="fa fa-paper-plane" aria-hidden="true" ></i>  Submit </button>
+					  			</div>
+					  		</div>	
+	  					</div>
+	  				</form>
+        			</div>
+        		</div>
+            </div>    
+            </div>
+      </section>
+      <script type="text/javascript" src="angularjsctrl/grivancesCtrl.js"></script>
+      <!--/.Table End-->	
+        </div><br><br><br>
+      </section>
+      <div th:replace="footer"></div>
+      </div>
+      </section>
+      </div>
+     </th:block>

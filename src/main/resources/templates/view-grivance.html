@@ -1,0 +1,115 @@
+    <th:block xmlns:th="https://www.thymeleaf.org">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">   
+    <div th:fragment="viewGrivance">
+    <div th:replace="header"></div>
+    <div th:replace="inner-header"></div>
+    <div class="wrapper" id="skipCont"></div>
+      <!--/#skipCont-->
+      <section id="fontSize" class="wrapper body-wrapper ">
+     <!--  <script th:inline="javascript">
+          var data=/*[[${data}]]*/
+      </script> -->
+      <div class="bg-wrapper inner-wrapper" data-ng-app="grievanceApp" data-ng-controller="grievanceCtrl">
+      <div class="breadcam-bg breadcam">
+         <div class="container common-container four_content ">
+            <ul>
+               <li><a href="/">Home </a></li>
+               <li><a href="#">Grievance</a></li>
+               <li><a href="#">View &amp; Grievance</a></li>
+            </ul>
+         </div>
+      </div>
+      <!--/#page-head-->
+      	<section id="paragraph" class="wrapper paragraph-wrapper">
+         <div class="content">
+     		<div class="p-2 bd-highlight" style="text-align: center; padding-top: 15px; color: #0095da;"><h2 class="page-title-dec"><i class="fa fa-hand-o-right" aria-hidden="true"></i> Lodged Grievances</h2></div>
+     		<hr style="width: 75%; margin-left: auto; margin-right: auto;">
+    		<!--/#Table-->
+      <section id="tables" class="wrapper tables-wrapper">
+         <div class="container common-container four_content ">
+            <div class="scroller" style="text-align: center;">
+           		<div class="card-block">
+                   <table cellspacing="0" cellpadding="0">
+                  <tbody>
+                     <tr>									
+						<th><b>Sr. No</b></th>
+						<th><b>Name</b></th>
+						<th><b>Date</b></th>
+						<th><b>Nature</b></th>
+						<th><b>Grievance</b></th>
+						<th><b>Address</b></th>
+						<th><b>View</b></th>
+					</tr>
+                     <tr
+							data-ng-repeat="g in grievances | orderBy:'entrydate': ASC">
+							<td>{{($index+1)+(pageNo*dataSize)}}</td>
+							<td style="width : 20%" data-ng-bind="g.name"></td>
+							<td data-ng-bind="g.entrydate | date : 'dd-MM-yyyy'"></td>
+							<td data-ng-bind="g.nature"></td>
+							<td style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; max-width: 300px;" title={{g.grievance}} data-ng-bind="g.grievance"></td>
+							<td style="width : 10%" data-ng-bind="g.address"></td>
+							<td style="text-align : center">
+							<a href="/lmd/attachment/users/export/pdf/{{g.ackno}}" target="_blank" title="View"><i class='fa fa-file-pdf-o'
+									aria-hidden='true' style='color: red;'></i></a>
+							</td>
+							
+						</tr>
+						<td colspan="1" style="text-align: left; font-weight: bold;">Page
+								{{pageNo+1}}/{{totalPages}}</td>
+							<td colspan="5"><div
+									class="text-center" data-ng-if="vendors.length>0">
+									<!-- data-ng-if="role==='IN'" -->
+									<button type="button" class="btn btn-success"
+										onclick="printTable()">
+										<i class="fa fa-download"></i>&nbsp;Print
+									</button>
+									&nbsp;&nbsp;
+									<!-- <button type="button" class="btn btn-success mr-2"
+										data-ng-click="Export('Vendor_not_Disposed_Under_Time')"
+										data-ng-hide="false">
+										<i class="fa fa-download"></i>&nbsp;Pdf
+									</button> -->
+									<button type="button" class="btn btn-success"
+										data-ng-click="exportExcel('Vendor_not_Disposed_Under_Time')">
+										<i class="fa fa-download"></i>&nbsp;Excel
+									</button>
+								</div></td>
+							<td colspan="3" style="text-align: right; font-weight: bold;">Record : 
+								{{(pageNo*dataSize)+grievances.length}}/{{totalItems}}</td>
+						</tr>
+                  </tbody>
+               </table>
+        </div>
+        <!--bootstrap pagignation  -->
+			<nav aria-label="Page navigation example"
+				data-ng-hide="totalPages<=1">
+				<ul class="pagination justify-content-end">
+					<li class="page-item" data-ng-click="previousPage()"
+						data-ng-disabled="pageNo===0"><a class="page-link"
+						href="#" tabindex="-1">Previous</a></li>
+					<li class="page-item" data-ng-click="pageExact(pageNo)"
+						data-ng-hide="(pageNo)>(totalPages-1)"><a
+						class="page-link" href="#">{{pageNo+1}}</a></li>
+					<li class="page-item" data-ng-click="pageExact(pageNo+1)"
+						data-ng-hide="(pageNo+1)>(totalPages-1)"><a
+						class="page-link" href="#">{{pageNo+2}}</a></li>
+					<li class="page-item" data-ng-click="pageExact(pageNo+2)"
+						data-ng-hide="(pageNo+2)>(totalPages-1)"><a
+						class="page-link" href="#">{{pageNo+3}}</a></li>
+					<li class="page-item" data-ng-click="nextPage()"
+						data-ng-disabled="pageNo===totalPages-1"><a
+						class="page-link" href="#">Next</a></li>
+				</ul>
+			</nav>
+            </div>
+         </div>
+      </section>
+      <!--/.Table End-->	
+        </div>
+      </section>
+      <div th:replace="footer"></div>
+       <script type="text/javascript" src="angularjsctrl/grivancesCtrl.js"></script>
+      </div>
+      </section>
+      </div>
+     </th:block>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>
+				%d{dd-MM-yyyy HH:mm:ss.SSS} [%t] [%level] [%logger{36}] - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+	
+	<appender name="DAILY" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>/home/MaaptaulLogs/Logs/lmdWeb.log</file>
+	    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+	      <fileNamePattern>/home/MaaptaulLogs/Logs/lmdWeb_%d{yyyy-MM-dd}.log</fileNamePattern>
+	      <maxHistory>20</maxHistory> 
+	      <totalSizeCap>2GB</totalSizeCap>
+	    </rollingPolicy>
+
+	    <encoder>
+	      <pattern>%d{dd-MM-yyyy HH:mm:ss.SSS} [%t] [%level] [%logger{36}] - %msg%n</pattern>
+	    </encoder>
+  </appender> 
+	<!--  <Loggers> -->
+		<!-- Logging custom package -->
+		<logger name="com.lmd" level="info" additivity="false">
+			<!-- <appender-ref ref="FILE"></appender-ref> -->
+			<appender-ref ref="DAILY"></appender-ref>
+		</logger>
+		<!-- <logger name="org.springframework.security" level="DEBUG" additivity="false">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="FileLogger"/>
+        </logger> -->
+		<root level="INFO">
+			<!-- <appender-ref ref="FILE"></appender-ref> -->
+			<appender-ref ref="DAILY"></appender-ref>
+		</root>
+	<!-- </Loggers> -->
+</configuration>

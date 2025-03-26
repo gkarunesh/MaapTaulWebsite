@@ -1,0 +1,250 @@
+<th:block xmlns:th="https://www.thymeleaf.org">
+<div th:fragment="header">
+<th:html>
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <meta name="format-detection" content="telephone=no" />
+      <meta name="description" content="Weights and measurement department, raja bajar, patna">
+      <meta name="author" content="Legal Metrology">
+      <!-- <link rel="apple-touch-icon" href="assets/images/favicon/apple-touch-icon.png"> -->
+      <link rel="icon" type="image/ico" href="./assets/images/icon.png">
+      <title>Weight and Measures division, Agriculture department, Government of Bihar </title>
+      <!-- Custom styles for this template -->
+      <link href="assets/css/base.css" rel="stylesheet" media="all">
+      <link href="assets/css/base-responsive.css" rel="stylesheet" media="all">
+      <link href="assets/css/grid.css" rel="stylesheet" media="all">
+      <link href="assets/css/font.css" rel="stylesheet" media="all">
+      <link href="assets/css/font-awesome.min.css" rel="stylesheet" media="all">
+      <link href="assets/css/flexslider.css" rel="stylesheet" media="all">
+      <link href="assets/css/megamenu.css" rel="stylesheet" media="all" />
+      <link href="assets/css/print.css" rel="stylesheet" media="print" />
+      <!-- Theme styles for this template -->
+      <link href="assets/css/megamenu.css" rel="stylesheet" media="all" />
+      <link href="theme/css/site.css" rel="stylesheet" media="all">
+      <link href="theme/css/site-responsive.css" rel="stylesheet" media="all">
+      <link href="theme/css/ma5gallery.css" rel="stylesheet" type="text/css">
+      <link href="theme/css/print.css" rel="stylesheet" type="text/css" media="print">
+      <!-- Custom JS for this template 
+      <noscript>
+         <link href="theme/css/no-js.css" type="text/css" rel="stylesheet">
+      </noscript>-->
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+      <script type="text/javascript" th:src="@{/angularjsctrl/master-service.js}"></script> 
+   </head>
+   <body>
+      <div id="fb-root"></div>
+      <header>
+         <div class="region region-header-top">
+            <div id="block-cmf-content-header-region-block" class="block block-cmf-content first last odd">
+              <div class="wrapper common-wrapper">
+                  <div class="container common-container four_content top-header">
+                     <div class="common-left clearfix">
+                        <ul>
+                           <li class="gov-india"><span class="responsive_go_hindi" lang="hi"><a target="_blank" href="https://state.bihar.gov.in/main/CitizenHome.html" title="बिहार सरकार  ( बाहरी वेबसाइट जो एक नई विंडो में खुलती है)">बिहार  सरकार</a></span></li>
+                           <li class="ministry"><span class="li_eng responsive_go_eng"><a target="_blank" href="https://state.bihar.gov.in/main/CitizenHome.html" title="Government of bihar,External Link that opens in a new window" >Government of Bihar</a></span></li>
+                        </ul>
+                     </div>
+                     <div class="common-right clearfix">
+                        <ul id="header-nav">
+                           <li class="ico-skip cf"><a href="#skipCont" title="">Skip to main content</a>
+                           </li>
+                           <li class="ico-site-search cf">
+                              <a href="javascript:void(0);" id="toggleSearch" title="Site Search">
+                              <img class="top" src="assets/images/ico-site-search.png" alt="Site Search" /></a>
+                              <div class="search-drop both-search">
+                                 <!-- <div class="google-find">
+                                    <form method="get" action="http://www.google.com/search" target="_blank">
+                                       <label for="search_key_g" class="notdisplay">Search</label>
+                                       <input type="text" name="q" value="" id="search_key_g"/> 
+                                       <input type="submit" value="Search" class="submit" /> 
+                                       <div class="">
+                                          <input type="radio" name="sitesearch" value="" id="the_web"/> 
+                                          <label for="the_web">The Web</label> 
+                                          <input type="radio" name="sitesearch" value="india.gov.in" checked id="the_domain"/> <label for="the_domain"> INDIA.GOV.IN</label>
+                                       </div>
+                                    </form>
+                                 </div> -->
+                                 <div class="find">
+                                    <form name="searchForm">
+                                       <label for="search_key" class="notdisplay">Search</label>
+                                       <input type="text" name="search_key" id="search_key" onKeyUp="autoComplete()" autocomplete="off" required />
+                                       <input type="submit" value="Search" class="bttn-search"/>
+                                    </form>
+                                    <div id="auto_suggesion"></div>
+                                 </div>
+                              </div>
+                           </li>
+                           <li class="ico-accessibility cf">
+                              <a href="javascript:void(0);" id="toggleAccessibility" title="Accessibility Dropdown">
+                              <img class="top" src="assets/images/ico-accessibility.png" alt="Accessibility Dropdown" />
+                              </a>
+                              <ul style="visibility: hidden;">
+                                 <li> <a onClick="set_font_size(&#39;increase&#39;)" title="Increase font size" href="javascript:void(0);">A<sup>+</sup>
+                                    </a> 
+                                 </li>
+                                 <li> <a onClick="set_font_size()" title="Reset font size" href="javascript:void(0);">A<sup>&nbsp;</sup></a> </li>
+                                 <li> <a onClick="set_font_size(&#39;decrease&#39;)" title="Decrease font size" href="javascript:void(0);">A<sup>-</sup></a> </li>
+                                 <li> <a href="javascript:void(0);" class="high-contrast dark" title="High Contrast">A</a> </li>
+                                 <li> <a href="javascript:void(0);" class="high-contrast light" title="Normal Contrast" style="display: none;">A</a> </li>
+                              </ul>
+                           </li>
+                           <li class="ico-social cf">
+                              <a href="javascript:void(0);" id="toggleSocial" title="Social Medias">
+                              <img class="top" src="assets/images/ico-social.png" alt="Social Medias" /></a>
+                              <ul>
+                                 <li><a target="_blank" title="External Link that opens in a new window" href="https://www.facebook.com/agribihar/"><img alt="Facebook Page" src="assets/images/ico-facebook.png"></a></li>
+                                 <li><a target="_blank" title="External Link that opens in a new window" href="https://twitter.com/Agribih"><img alt="Twitter Page" src="assets/images/ico-twitter.png"></a></li>
+                                 <li><a target="_blank" title="External Link that opens in a new window" href="https://www.youtube.com/@agriculturedepartmentbihar843"><img alt="youtube Page" src="assets/images/ico-youtube.png"></a></li>
+                              </ul>
+                           </li>
+                           <li class="ico-sitemap cf"><a href="/lmd/sitemap" title="Sitemap">
+                              <img class="top" src="assets/images/ico-sitemap.png" alt="Sitemap" /></a>
+                           </li>
+                           <li class="hindi cmf_lan d-hide">
+                              <label class="de-lag">
+                                 <span style="display: none;">Language</span>
+                                 <select title="Select Language">
+                                    <option>English</option>
+                                    <!-- <option>हिन्दी</option> -->
+                                 </select>
+                              </label>
+                           </li>
+                           <li class="hindi cmf_lan m-hide">
+                              <a href="javascript:;" title="Select Language">Language</a> 
+                              <ul>
+                                 <li><a target="_blank" href="" lang="hi" class="alink" title="Click here for हिन्दी version.">हिन्दी</a></li>
+                              </ul>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <p id="scroll" style="display: none;"><span></span></p>
+         </div>
+         <!--Top-Header Section end-->
+         <section class="wrapper header-wrapper">
+            <div class="container common-container four_content  header-container">
+               <h2 class="logo">
+                  <a href="/lmd" title="Home" rel="home" class="header__logo" id="logo">
+                  <img class="national_emblem" src="assets/images/wm-logo.png" alt="national emblem" >
+                  <em><span>माप तौल संभाग, कृषि विभाग, बिहार सरकार  </span>                       
+                     <span> Weights & Measures Division,<br> Agriculture Department, Govt. of Bihar</span>
+                  </em>
+                  </a>
+               </h2>
+               <div class="header-right clearfix">
+                  <div class="right-content clearfix">
+                     <div class="float-element">
+                        <a class="sw-logo" target="_blank" href="https://state.bihar.gov.in/main/CitizenHome.html" title="Bihar government, External link that open in a new windows"><img src="assets/images/bih-logo.png" alt="Bihar Government"></a>
+                     </div>
+                  </div>
+                  <span style="color:red; font-weight: 500" title="मनुस्मृति-श्लोक संख्या: ४०२ -> तराजू के वांट और गज वरौरह पर अपनी मोहर लगाकर ठीक रखे और छठे महीना उनकी जाँच किया करे।">तुलामानं प्रतीमानं सर्व च स्यात्सुलक्षितम् ।  षट्सु षट्सु च मासेषु पुनरेव परीक्षयेत्  ।।</span></br></br>
+                  <center><b class="tab blink" style="color: red; font-size: 15px;">&nbsp; Consumer Helpline</b> : <span style="font-size: 17px;">&nbsp;18001801551 </br>( Timing 6:00 A.M to 10:00 P.M)</span></center>
+               </div>
+            </div>
+         </section>
+         
+         <!--/.header-wrapper-->
+         <section class="wrapper megamenu-wraper">
+            <h2 style="display: none;">Megamenu</h2>
+            <div class="container common-container four_content" data-ng-if="!sessionLoginData">
+               <p class="showhide" ><em></em><em></em><em></em></p>
+               <nav class="main-menu clearfix" id="main_menu">
+                  <ul class="nav-menu">
+                    <li class="nav-item"> <a href="/lmd" class="home"><i class="fa fa-home"></i></a> </li>            
+                    <li class="nav-item"> <a href="#">About Us</a>
+                      <div class="sub-nav">
+                        <ul class="sub-nav-group">
+                          <li><a href="/lmd/Introduction">Introduction </a></li>
+                          <li><a href="/lmd/OrgChart">Organization Chart</a></li>
+                          <li><a href="/lmd/whoIswho">Who’s who </a></li>
+                          <li><a href="https://maaptaul.bihar.gov.in/lmd/queryData?param=view&param1=2020/others/establishment.pdf&param2=pdf" target="_blank">Establishment</a></li>
+                          <li><a class="dropdown-item" href="https://maaptaul.bihar.gov.in/lmd/queryData?param=view&param1=2020/others/roadMap.pdf&param2=pdf" target="_blank">Roadmap</a></li>
+                          <li><a class="dropdown-item" href="/lmd/w&m-certified-service-providers">List of Dealers,Manufacturers,Repairers</a></li>
+                           <li><a class="dropdown-item" href="/lmd/central-lab">Central Laboratory</a>
+                        </ul>            
+                      </div>
+                    </li>
+            
+                    <li class="nav-item"> <a href="/lmd/circular"> Notification/Circular </a></li>
+            
+                    <li class="nav-item"><a href="#"> Report </a>
+                      <div class="sub-nav">
+                        <ul class="sub-nav-group">
+                          <li><a href="/lmd/rtps-report">Application Progress Report</a></li>
+                       </ul>
+                      </div>
+                    </li>
+                    
+                    <li class="nav-item"><a>Consumer's Corner</a>
+                      <div class="sub-nav">
+                        <ul class="sub-nav-group">
+                          <li><a href="https://wemmis.bihar.gov.in/" target="_blank">Apply Online For Manufacturer License</a></li>
+                          <li><a href="https://drive.google.com/drive/folders/1V0VExPylEFdAh-FH7elNkjrDgknueW-V" target="_blank">Download Mobile App for Traders</a></li>
+                          <li><a href="/lmd/RateUs">Rate Us</a></li>
+                          <li><a href="/lmd/ViewFedback">View Feedback</a></li>
+                          <li><a href="/lmd/CompoundingOffense">List of Prosecuted Shops &amp; Establishment</a></li>
+                        </ul>
+                      </div>
+                    </li>
+            		
+                    <li class="nav-item"><a href="/lmd/events">Events &amp; Calendar</a></li>
+            
+                    <li class="nav-item"><a> Downloads </a>
+                      <div class="sub-nav">
+                        <ul class="sub-nav-group">
+                          <li><a href="/lmd/form">Forms</a></li>
+                          <li><a href="/lmd/letters">Important Letters</a></li>
+                          <li class="nav-item"> <a href="/lmd/events"> Events &amp; Calendar </a></li>
+                       </ul>
+                      </div>
+                    </li>
+                    <li class="nav-item"><a href="https://wemmis.bihar.gov.in/app/" target=_blank>Wemmis Login</a></li>
+                    <li class="nav-item"><a href="/lmd/actAndRules">Act's &amp; Rules</a></li>             
+                    <li class="nav-item"><a> Grievance  </a>
+                      <div class="sub-nav">
+                        <ul class="sub-nav-group">
+                          <li><a href="/lmd/lodge-grievance">Lodge</a></li>
+                          <li><a href="/lmd/view-grievances">View Grievance</a></li>
+                          <li><a href="/lmd/complaint-counter">Complaint Counter</a></li>
+                       </ul>
+                      </div>
+                    </li>
+                    <li class="nav-item"><a href="/lmd/Gallery">Gallery</a></li>
+                    <li><a> Help  </a>
+                      <div class="sub-nav">
+                        <ul class="sub-nav-group">
+                          <li><a href="/lmd/sitemap">Sitemap</a></li>
+                       </ul>
+                      </div>
+                    </li>
+                   
+                    <li class="nav-item"><a href="/lmd/RTI">RTI</a></li>
+                    
+                    <li class="nav-item"><a href="/lmd/ContactUs">Contact Us</a></li>
+                    
+                    <li class="nav-item"><a href="/lmd/login">Admin / User Login <i class="fa fa-sign-in" aria-hidden="true"></i></a></li>
+                  </ul>
+               </nav>
+               <nav class="main-menu clearfix" id="overflow_menu">
+                  <ul class="nav-menu clearfix">
+                  </ul>
+               </nav>
+            </div>
+            
+            
+            
+            <!-- <div class="container common-container four_content" data-ng-if="authority=='ADMIN'" style="padding-bottom : 10px; padding-top : 10px; text-align : right">
+               <p class="showhide"><em></em><em></em><em></em></p>
+                    <a href="/lmd" class="home" style="color : #fff;"><i class="fa fa-sign-out"></i>&nbsp;Logout</a>           
+            </div> -->
+          </section>   
+          
+      </header>
+      </body>
+      </html>
+      </div>
+      </th:block>

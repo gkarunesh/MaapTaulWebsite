@@ -1,0 +1,163 @@
+    <th:block xmlns:th="https://www.thymeleaf.org">
+    <div th:fragment="homepage">
+    <div th:replace="header"></div>
+     <!--/.nav-wrapper-->
+      <section class="wrapper banner-wrapper">
+         <h1 style="display: none">Banner</h1>
+         <div id="flexSlider" class="flexslider">
+            <ul class="slides">
+               <li><img src="theme/images/banner/slider1.jpg" alt="home page slider1" title="Weight & Measurment, Raja Bajar, Patna"></li>
+               <li><img src="theme/images/banner/slider2.jpg" alt="home page slider2" title="Weight & Measurment, Raja Bajar, Patna"></li>
+               <li> <img src="theme/images/banner/slider3.jpg" alt="home page slider3" title="Weight & Measurment, Raja Bajar, Patna"></li>
+               <li> <img src="theme/images/banner/slider4.jpg" alt="home page slide4" title="Weight & Measurment, Raja Bajar, Patna"></li>
+               <li> <img src="theme/images/banner/slider5.jpg" alt="home page slider5" title="Weight & Measurment, Raja Bajar, Patna"></li>
+               <li> <img src="theme/images/banner/slider7.jpg" alt="home page slider6" title="Weight & Measurment, Raja Bajar, Patna"></li>
+               <li> <img src="theme/images/banner/slider8.jpg" alt="home page slider7" title="Weight & Measurment, Raja Bajar, Patna"></li>
+            </ul>
+         </div>
+      </section>
+      <div class="wrapper" id="skipCont"></div>
+      <!--/#skipCont-->
+      <section id="fontSize" class="wrapper body-wrapper ">
+         <h2 style="display: none;">Body</h2>
+         <marquee>
+         <span style="font-size: 14px; color: red;">National Consumer Day 24 Dec 2021: A market without consumers will be a night sky without the stars and moon. Protect their rights and serve them the best for greater reputation and Fame.</span> </marquee> 
+         <div class="bg-wrapper top-bg-wrapper gray-bg padding-top-bott" data-ng-app="homeApp" data-ng-controller="homeCtrl">
+            <div class="container common-container four_content body-container top-body-container padding-top-bott2">
+               <!-- <div class="minister clearfix">
+                  <div class="minister-box clearfix">
+                     <div class="minister-sub1" data-ng-repeat="officials in officers | orderBy :'priority'">
+                        <div class="minister-image">
+                        <img src="/lmd{{officials.sourceUrl}}" alt="Hon’ble Minister, Bihar" title="Chief Minister, Bihar" style="height : 90px; width : 90px;"></div>
+                        <div class="min-info">
+                           <h4><a href="#" title="Minister Name" data-ng-bind="officials.name | uppercase"></a></h4>
+                           <h5 data-ng-bind="officials.designation"></h5>
+                           <h5 class="prime"></h5>
+                        </div>																													
+                     </div>
+                   </div>
+               </div> -->
+               
+               <div class="left-block">
+                  <div class="left-col-2" style="min-height: 380px;box-shadow: 1px 0px 4px 0px;">
+                     <div class="page-tab clearfix">
+                        <div class="page-tab-res clearfix">
+                           <div id="parentHorizontalTab">
+                              <div class="resp-tabs-container hor_1" >                           
+                                 <div class="clearfix" id="hor_1_tab_item-0">
+                                    <div class="content-wrapper">
+                                    <h2 style="font-size : 21px;"><i class="fa fa-bars" aria-hidden="true" style="color: #ff6b57"></i>&nbsp;Latest Services</h2>
+                                    <!-- <p class="text-slide pause" onClick="changeClass()"></p> -->
+                                     <div>
+                                          <ul class="list" style="margin-bottom: 25px;">
+                                              <li class="nav-item"> <a class="nav-link" href="https://wemmis.bih.nic.in/app/login/user" target="_blank">Apply for License / Registration / Verification Certificate and Renewal &nbsp;</a> </li>
+								              <li class="nav-item"> <a class="nav-link" href="/lmd/newsClip">News Clippings</a> </li>
+								              <li class="nav-item"> <a class="nav-link" href="/lmd/posting">Transfers &amp; Postings</a> </li>
+								              <li class="nav-item"> <a class="nav-link" href="/lmd/sLetter">Scheme Sanction Letters</a> </li>
+								              <li class="nav-item"> <a class="nav-link" href="/lmd/Tenders">Tender Information</a> </li>
+								              <!-- <li class="nav-item"> <a class="nav-link" href="https://drive.google.com/drive/folders/1V0VExPylEFdAh-FH7elNkjrDgknueW-V" target="_blank">Download Mobile App for Trader &nbsp;</a></li> -->
+								              <li class="nav-item"> <a class="nav-link" href="#" target="_blank">Download Mobile App for Trader &nbsp;</a></li>
+								              <a href="https://wemmis.bihar.gov.in/app" target="new"><img src="theme/images/e_Maaptaul_Bihar.gif" class="image-fluid" alt="e_maaptaul_gif" title="Click here for issue of new license / Registration / VC and its renewal." style="box-shadow: 3px 4px 9px 1px #000000;width: 225px;"></a>
+            							  </ul>
+                                       </div>
+                                       <!-- <div class="view-footer"><a href="/lmd/events.jsp" title="Read More"><span>Read More ></span></a></div> -->
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="left-col-2" style="box-shadow: 1px 0px 4px 0px;">
+                     <h2>Latest Events</h2>
+                     <p class="text-slide1 pause" onClick="changeClass1()"></p>
+                     <div class="scroll-text-1 scroll-left">
+                        <ul class="list">
+                           <li class="resp-tabs-container ul.list li:before" data-ng-repeat="event in eventData | filter: {'isNew':'V'} | orderBy:'-entryDate'">
+                                  <a style="color: #000;" href="/lmd/{{event.sourceUrl}}"  target="_blank">
+									<i class="fa fa-circle" aria-hidden="true" style="color: #912c1f; padding-right : 20px;"></i>{{event.description}} <i class="fa fa-file-pdf-o" aria-hidden="true" style="color: red"></i>
+								</a>
+						  </li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+                
+            </div>
+         </div>
+         <script type="text/javascript" src="angularjsctrl/homeCtrl.js"></script> 
+         <div class="wrapper home-banner">
+            <div class="container common-container four_content banner-container body-container top-body-container">               
+               <div class="banner-content-wrapper">
+                  <h2>Welcome to <span>Weights & Measures Division</span></h2>
+                  <p class="banner-title-tag-line">Welcome to the website of Weights & Measures Division, Agriculture Department, Govt. of Bihar.</p>
+                  <p class="banner-content" style="text-align: justify">Various transactions are carried out by sale or purchase of essential goods and commodities using various kinds of weighing and measuring instruments to meet the consumers' daily needs. 
+                  Consumers' interests are best protected only if weighing and measuring equipment used in the transactions are duly verified and stamped by the legal metrology. 
+                  The Legal Metrology wing has been entrusted with the responsibility of certifying weighing and measuring equipments in the state. </p>
+                  <a href="/lmd/Introduction" title="Click here to know more about">Read more ></a>
+               </div>               
+               <div class="banner-right-wrapper">
+                  <div class="banner-box-wrapper">
+                     <div class="banner-box banner-box-1">
+                        <div class="banner-box-content">
+                           <h2>Organization Chart</h2>
+                           <a href="/lmd/OrgChart" title="External link that opens in new tab" target="_blank">
+                              <p>Internal Structure</p>
+                              <i class="fa fa-external-link"></i>                
+                           </a>
+                        </div>
+                     </div>
+                     <div class="banner-box banner-box-2">
+                        <div class="banner-box-content">
+                           <h2>Legal Metrology Officers</h2>
+                           <a href="/lmd/whoIswho" title="External link that opens in new tab" target="_blank">
+                              <p>Who is Who</p>
+                              <i class="fa fa-external-link"> </i>
+                           </a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="wrapper home-btm-slider">
+            <div class="container common-container four_content gallery-container">
+               <div class="gallery-area clearfix">
+                  <div class="gallery-heading">
+                     <h3>Photo Gallery</h3>
+                     <a class="bttn-more bttn-view" href="/lmd/Gallery" title="View all Photo Gallery"><span>View All</span></a> 
+                  </div>
+                  <div class="gallery-holder">
+                     <div id="galleryCarousel" class="flexslider">
+                        <ul class="slides">
+                           <li data-thumb="theme/images/crousal/wm-headquarter.jpg" data-thumb-alt="Headquarter">
+                              <img src="theme/images/crousal/wm-headquarter.jpg" alt="Headquarter" title="Headquarter"/>
+                           </li>
+                           <li data-thumb="theme/images/crousal/wm-lab.jpg" data-thumb-alt="Lab">
+                              <img src="theme/images/crousal/wm-lab.jpg" alt="Lab" title="Lab"/>
+                           </li>
+                           <li data-thumb="theme/images/crousal/wm-hq.jpg" data-thumb-alt="Campus">
+                              <img src="theme/images/crousal/wm-hq.jpg" alt="Campus" title="Campus"/>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+               <div class="gallery-right">
+                  <div class="video-heading">
+                     <h3>Video Gallery</h3>
+                     <a class="bttn-more bttn-view" href="/lmd/Gallery" title="View all Video Gallery"><span>View All</span></a> 
+                  </div>
+                  <div class="video-wrapper">
+                     <!-- <video controls="Consumer Awareness Video">
+      					<source src="images/Gallery/video/maap-taul_con_awareness_video.mp4" type="video/mp4">
+    				 </video> -->
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!--/.body-wrapper-->
+      <div th:replace="footer"></div>
+      </div>
+     </th:block>

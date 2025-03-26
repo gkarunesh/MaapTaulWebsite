@@ -1,0 +1,301 @@
+    <th:block xmlns:th="https://www.thymeleaf.org">
+   <link rel="stylesheet" href="assets/css/bootstrap.min.css"> 
+   <style>
+   .hidden{ 
+		display: none; 
+	} 
+	</style>
+   <div th:fragment="manager">
+    <div th:replace="header"></div>
+    <div th:replace="inner-header"></div>
+     	<div class="wrapper" id="skipCont"></div>
+      <!--/#skipCont-->
+      <section id="fontSize" class="wrapper body-wrapper">
+      <div class="bg-wrapper inner-wrapper">
+      <div class="breadcam-bg breadcam">
+         <div class="container common-container four_content ">
+            <ul>
+               <li><a href="/">Home </a></li>
+               <li><a href="#">Admin</a></li>
+            </ul>
+         </div>
+      </div>
+      <!--/#page-head-->
+      <section id="paragraph" class="wrapper paragraph-wrapper" data-ng-app="AttachmentEntryApp" data-ng-controller="AttachmentEntryCtrl">
+         <div class="content">
+       		<div class="p-2 bd-highlight" style="text-align: center; padding-top: 15px; color: #0095da;"><h2 class="page-title-dec"> Manage Content </h2></div>
+       		<hr style="width: 75%; margin-left: auto; margin-right: auto;">
+   			<div style="width: 75%; margin-left: auto; margin-right: auto;">
+				<div class="page">
+					<!-- tabs -->
+					<div class="pcss3t pcss3t-effect-scale pcss3t-theme-1">
+						<input type="radio" name="pcss3t" checked  id="tab1"class="tab-content-first">
+						<label for="tab1" data-ng-if="authority=='ADMIN'">VERIFY ATTACHMENTS <i class="fa fa-check" aria-hidden="true"></i></label>
+						
+						<input type="radio" name="pcss3t" id="tab6" class="tab-content-6">
+						<label for="tab6" data-ng-if="authority=='ADMIN'">VERIFY RATINGS <i class="fa fa-star" aria-hidden="true"></i></label>
+						
+						<input type="radio" name="pcss3t" id="tab2" class="tab-content-2">
+						<label for="tab2" data-ng-if="authority=='ADMIN'">REGISTER USER <i class="fa fa-pencil-square-o" aria-hidden="true"></i></label>
+						
+						<input type="radio" name="pcss3t" id="tab3" class="tab-content-3">
+						<label for="tab3" data-ng-if="authority=='ADMIN'"> USER LIST<i class="fa fa-user" aria-hidden="true"></i></label>
+						
+						<input type="radio" name="pcss3t" id="tab4" class="tab-content-4">
+						<label for="tab4" data-ng-if="authority=='USER'">ATTACHMENT ENTRY <i class="fa fa-pencil" aria-hidden="true"></i></label>
+						
+						<input type="radio" name="pcss3t" id="tab5" class="tab-content-5">
+						<label for="tab5" data-ng-if="authority=='USER'">HIGHER OFFICIALS ENTRY <i class="fa fa-pencil" aria-hidden="true"></i></label>
+						
+						<button type="button" class="btn btn-info" style="background: #37a3d5; height: 47px; margin-bottom: 8px; width: 120px;" data-ng-click="logout()"><i class="fa fa-power-off" aria-hidden="true"></i> Logout</button>
+						
+						<ul>
+						<!-- Verify Attachments -->
+							<li class="tab-content tab-content-first typography" data-ng-if="authority=='ADMIN'">
+								<div class="card-block">
+					                   <table class="table  table-bordered table-hover table-condensed responsive m-b-0" data-sortable>
+											<thead class="thead-dark">
+												<tr>
+													<th><b>Sr. no</b></th>
+													<th><b>Type</b></th>
+													<th><b>Group</b></th>
+													<th><b>Description</b></th>
+													<th><b>Date</b></th>
+													<th><b>Action</b></th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr data-ng-repeat="upload in uploads | filter: {isNew : 'N'} | orderBy:'-entryDate'" class="ng-scope">
+													<td style="text-align: center;" class="ng-binding">{{$index+1}}.</td>
+													<td style="text-align: center;" data-ng-bind="upload.kindOf" class="ng-binding"></td>
+													<td style="text-align: center;" data-ng-bind="upload.groupOfKindOf" class="ng-binding"></td>
+													<td style="text-align: center;" data-ng-bind="upload.description" class="ng-binding"></td>
+													<td style="text-align: center;" data-ng-bind="upload.entryDate | date:'dd/MM/yyyy'"></td>
+													
+													<td style="text-align: center;"><a target="_blank" href="/lmd{{upload.sourceUrl}}" title="View"><i class="fa fa-file-pdf-o" aria-hidden="true" style="color: red;"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+															<a href="javascript:void(0);" title="Verify" data-ng-click="verifyUploads(upload.attachmentid)"><i class="fa fa-check"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+															<a href="javascript:void(0);" title="delete" data-ng-click="deleteUploads(upload.attachmentid)" data-toggle="modal" data-target="#output"><i class="fa fa-trash text-danger"></i></a></td>
+												</tr>
+											</tbody>
+										</table>
+					        		</div>
+								</li>
+							<!-- Registration -->		
+							<li class="tab-content tab-content-2 typography" data-ng-if="authority=='ADMIN'">
+								<div class="login_form">
+									<div class="p-2 bd-highlight" style="text-align: center; padding-top: 15px; color: #0095da;"><h2 class="page-title-dec">User Registration &nbsp; <i class="fa fa-edit"></i> </h2></div>
+									<hr>
+										<div><p style="color: red; text-align : right;">(*) All Fields are mandatory</p></div>
+										<form name="reg_form" novalidate=novalidate>
+										<div class="form-group">
+							  				<label for="exampleInputUsername"><b>Fullname<span style="color: red">*</span></b></label>
+									    	<input type="text" class="form-control" data-ng-model="regd.fullname" placeholder=" Enter Fullname">
+								  		</div>
+								  		<div class="form-group">
+							  				<label for="exampleInputUsername"><b>Username<span style="color: red">*</span></b></label>
+									    	<input type="text" class="form-control" onkeyup="this.value = this.value.replace(/[^a-zA-Z0-9]/g, '')" data-ng-model="regd.username" placeholder=" Enter Username">
+								  		</div>
+							  			<div class="form-group">
+							  				<label for="exampleInputUsername"><b>Password<span style="color: red">*</span></b></label>
+									    	<input type="password" class="form-control" data-ng-model="regd.password" placeholder=" Enter Password">
+								  		</div>
+							  			
+								  		<div class="form-group">
+							  				<label for="exampleInputUsername"><b>Mobile<span style="color: red">*</span></b></label>
+							  				<div data-ng-class="{'has-error': reg_form.mobile.$error.pattern ,'has-success': reg_form.mobile.$valid}">
+									    	<input type="text" name="mobile" class="form-control" maxlength="10" data-ng-model="regd.mobile" data-ng-pattern="/^[6-9][0-9]{9}$/" placeholder=" Enter Mobile No." required>	
+									    	<span data-ng-show="reg_form.mobile.$error.pattern" class="text-danger">Please enter valid number!</span>	</div>			    	
+								  		</div>
+								  		
+								  		<div class="form-group">
+							  				<label for="ackno"><b>Email<span style="color: red">*</span></b></label>
+							  				<div data-ng-class="{'has-error': reg_form.email.$error.pattern ,'has-success': reg_form.email.$valid}">
+									    	<input type="text" name="email" class="form-control" data-ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,4}$/" data-ng-model="regd.email" placeholder=" Enter Email" required>
+									    	<span data-ng-show="reg_form.email.$error.pattern" class="text-danger">Please enter valid email!</span>	</div>					    	
+								  		</div>
+								  		<div class="form-group">
+				                			<label for ="description"><b>City<span style="color: red">*</span></b></label>
+				                 			<input type="text" class="form-control" data-ng-model="regd.city" placeholder=" Enter City Name">
+				              			</div>
+								  		<!-- Gender -->
+			                            <div class="form-container">
+			                                <label for ="description"><b>Gender<span style="color: red">*</span></b></label>
+			                                <div class="radio">
+											  <label class="radio-inline"><input type="radio" data-ng-model="regd.gender" data-ng-value="'Male'" name="gender">&nbsp;&nbsp;<b>Male</b></label>&nbsp;&nbsp;&nbsp;&nbsp;
+											  <label class="radio-inline"><input type="radio" data-ng-model="regd.gender" data-ng-value="'Female'" name="gender">&nbsp;&nbsp;<b>Female</b></label>
+											</div>
+			                            </div>
+			                           <br>
+			                               <div class="hidden text-center" style="font-size : 15px; color : red;">{{successMsg}}</div> 
+		  							   <br>
+			                       <div align="center">
+		  								<button type="button" class="btn btn-success" data-ng-disabled = "!regd.username || !regd.fullname || !regd.mobile ||!regd.email ||!regd.city || !regd.gender" style="width : 200px" data-ng-click="submit_UserRegisterForm()"><i class="fa fa-paper-plane" aria-hidden="true" ></i>  Submit </button>
+					  				</div>
+					  				</form>
+					  		</div>	
+						</li>
+						<!-- All Users -->
+							<li class="tab-content tab-content-3 typography" data-ng-if="authority=='ADMIN'">
+							<div class="text-center" id="statusDiv" style="font-size : 15px; color : red; font-weight : 600">{{submitStatus}}</div><br>
+					          	<div class="card-block">
+										<table class="table  table-bordered table-hover table-condensed responsive m-b-0" data-sortable>
+											<thead class="thead-dark">
+												<tr>
+													<th><b>Sr. no</b></th>
+													<th><b>Date</b></th>
+													<th><b>Fullname</b></th>
+													<th><b>Username</b></th>
+													<th><b>Email</b></th>
+													<th><b>Action</b></th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr data-ng-repeat="user in users | filter: {username : '!ADMIN', enabled : 'true'} | orderBy:'-entryDate'" class="ng-scope">
+													<td style="text-align: center;" class="ng-binding">{{$index+1}}.</td>
+													<td style="text-align: center;" data-ng-bind="user.registerDate | date:'dd-MM-yyyy' " class="ng-binding"></td>
+													<td style="text-align: center;" data-ng-bind="user.fullname" class="ng-binding"></td>
+													<td style="text-align: center;" data-ng-bind="user.username" class="ng-binding"></td>
+													<td style="text-align: center;" data-ng-bind="user.email" class="ng-binding"></td>
+													<td style="text-align: center;">
+															<a href="javascript:void(0);" title="deactivate" data-ng-click="deactivateUser(user.id)"><i class="fa fa-trash"></i></a></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</li><br><br>
+								<!--/#Table-->
+								
+			    				<div data-ng-if="authority=='USER'">
+									<div class="login_form">
+										<div class="p-2 bd-highlight" style="text-align: center; padding-top: 15px; color: #0095da;"><h2 class="page-title-dec">Attachment Entry Form &nbsp; <i class="fa fa-upload" aria-hidden="true"></i> </h2></div>
+										<hr>
+											<div align="right"><p style="color: red">(*) All Fields are mandatory</p></div>
+											<div class="form-group">
+								  				<label for="exampleInputUsername"><b>Choose option<span style="color: red">*</span></b></label>
+										    	<select class="custom-select mr-sm-2" style="font-size: 16px;" data-ng-model="newAtr.kindOf" data-ng-change="getselectval(newAtr.kindOf)">
+					        						<option value="actAndRules">Acts &amp; Rules</option>
+					        						<option value="events">Event Calendar</option>
+					        						<option value="newsClip">News Clipping</option>
+					        						<option value="posting">Transfer Posting</option>
+					        						<option value="circular">Notification/Circular</option>
+					        						<option value="form">Form</option>
+					        						<option value="letters">Important Letters</option>
+					        						<option value="tender">Tender Information</option>
+					                    			<option value="sLetter">Sanctioned Letter</option>
+					                    			<option value="atr">ATR</option>
+					                    			<option value="others">Others</option>
+					                    		</select>
+									  		</div>
+								  			<div class="form-group" data-ng-hide="selectedvalues=='newsClip'">
+								  				<label for="exampleInputUsername"><b>Group<span style="color: red">*</span></b></label>
+										    	<input type="text" class="form-control" data-ng-model="newAtr.groupOfKindOf" placeholder=" Enter Group">
+									  		</div>
+									  		<div class="form-group" data-ng-show="selectedvalues=='newsClip'">
+								  				<label for="exampleInputUsername"><b>Newspaper name<span style="color: red">*</span></b></label>
+										    	<input type="text" class="form-control" data-ng-show="true" data-ng-model="newAtr.groupOfKindOf" placeholder=" Enter Newspaper Name">					    	
+									  		</div>
+									  		<div class="form-group" data-ng-show="selectedvalues=='atr'">
+								  				<label for="ackno"><b>Ack no<span style="color: red">*</span></b></label>
+										    	<input type="text" class="form-control" data-ng-model="newAtr.ackno" placeholder=" Enter Ack No">					    	
+									  		</div>
+									  		<div class="form-group">
+					                			<label for ="description"><b>Date<span style="color: red">*</span></b></label>
+					                 			<input type="date" class="form-control" data-ng-model="newAtr.entryDate" placeholder=" Select Date...">
+					                 		</div>
+					                 		
+					                 		<input type="hidden" class="form-control" data-ng-model="newAtr.sourceUrl">
+									  		<div class="form-group">
+								  				<label for ="description"> <b>Description<span style="color: red">*</span></b></label>
+								  			 	<textarea  class="form-control" data-ng-model="newAtr.description" rows="2" placeholder="Enter Description"></textarea>
+								  			</div>
+								  		   	<div class="row">
+							  							<div class="col-md-9">
+							    							<div class="input-group form-group">
+							     				<!-- <button type="button" class="btn btn-primary file-upload-btn"><i class="fa fa-file" aria-hidden="true"></i> -->
+							     				<label><b>Upload your file<span style="color: red">*</span></b></label>&nbsp;
+							     							<input type="file" accept="application/pdf" data-file-model="newAtr.attachment" class= "file-upload-new">&nbsp; &nbsp; 
+							                	</div>
+							  					<!-- </form> -->
+							    				</div>
+							            		</div>
+			            				 <br><br>
+			  							<div align="center">
+			  								<button type="button" class="btn btn-success" data-ng-disabled = "!newAtr.kindOf || !newAtr.groupOfKindOf || !newAtr.entryDate ||!newAtr.description ||!newAtr.attachment" style="width : 200px" data-ng-click="submit_attachmentForm()"><i class="fa fa-paper-plane" aria-hidden="true" ></i>  Submit </button>
+						  				</div><br>
+						  				<div class="hidden text-center" style="font-size : 15px; color : red;">{{successMsg}}</div> 
+						  		</div>	
+	 					<!--/.Table End-->	
+        				</div>
+        				<li class="tab-content tab-content-5 typography" data-ng-if="authority=='USER'" style="background: #fff">
+							<div class="higher_authority_entry" style="width:50%; margin-left : auto; margin-right: auto; border :1px solid cadetblue; border-radius : 5px; padding : 20px; box-shadow: 3px 3px;">
+								<div class="p-2 bd-highlight" style="text-align: center;"><h2 style=" color: #0095da;" class="page-title-dec">Upload Higher Officials &nbsp; <i class="fa fa-user"></i> </h2></div>
+								<hr>
+									<div align="right"><p style="color: red">(*) All Fields are mandatory</p></div><br>
+									<div class="form-group">
+						  				<label for="exampleInputUsername"><b>Official Name<span style="color: red">*</span></b></label>
+								    	<input type="text" class="form-control" data-ng-model="officials.name" placeholder=" Enter Name">
+							  		</div>
+							  		<div class="form-group">
+						  				<label for="exampleInputUsername"><b>Designation<span style="color: red">*</span></b></label>
+								    	<select class="custom-select mr-sm-2" style="font-size: 16px;" data-ng-model="officials.priority" data-ng-options="desig.value as desig.post for desig in designations">
+			        					</select>
+								   </div>
+							  		<div class="row">
+				  							<div class="col-md-9">
+				    							<div class="input-group form-group">
+				     					<!-- <button type="button" class="btn btn-primary file-upload-btn"><i class="fa fa-file" aria-hidden="true"></i> -->
+				     					<label><b>Upload your file<span style="color: red">*</span></b></label>&nbsp;
+				     						<input type="file" accept="image/*" data-file-model="fileName" class= "file-upload-new">&nbsp; &nbsp; 
+				                		</div>
+				  						</div>
+					            	</div>
+	            				 <br><br>
+	  							<div align="center">
+	  								<button type="button" class="btn btn-success" data-ng-disabled = "!officials.name || !officials.priority || !fileName" style="width : 200px" data-ng-click="submit_Officials(fileName)"><i class="fa fa-paper-plane" aria-hidden="true" ></i>  Submit </button>
+				  				</div><br>
+				  				<div class="hidden text-center" style="font-size : 15px; color : red;">{{successMsg}}</div> 
+				  		</div>	
+	 					<!--/.Table End-->	
+        				</li>
+        				<!-- All Ratings -->
+							<li class="tab-content tab-content-6 typography" data-ng-if="authority=='ADMIN'">
+							<!-- <div class="text-center" id="statusDiv" style="font-size : 15px; color : red; font-weight : 600">{{submitStatus}}</div><br> -->
+					          	<div class="card-block">
+										<table class="table  table-bordered table-hover table-condensed responsive m-b-0" data-sortable>
+											<thead class="thead-dark">
+												<tr>
+													<th><b>Sr. no</b></th>
+													<th><b>Date</b></th>
+													<th><b>Name</b></th>
+													<th><b>Remarks</b></th>
+													<th><b>Action</b></th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr data-ng-repeat="verRate in ratingsVerify | filter: {status : 'N'}" class="ng-scope">
+													<td style="text-align: center;" class="ng-binding">{{$index+1}}.</td>
+													<td style="text-align: center;" data-ng-bind="verRate.dateT | date:'dd-MM-yyyy'" class="ng-binding"></td>
+													<td style="text-align: center;" data-ng-bind="verRate.name" class="ng-binding"></td>
+													<td style="text-align: center;" data-ng-bind="verRate.remarks" class="ng-binding"></td>
+													<td style="text-align: center;"><a target="_blank" href="/lmd{{upload.sourceUrl}}" title="View"></a>
+														<a href="javascript:void(0);" title="Verify" data-ng-click="manageRating(verRate.rateid, 'V')"><i class="fa fa-check"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+														<a href="javascript:void(0);" title="delete" data-ng-click="manageRating(verRate.rateid, 'D')" data-toggle="modal" data-target="#output"><i class="fa fa-trash text-danger"></i></a></td>
+												</tr>
+											</tbody>
+										</table>
+										<div class="hidden text-center text-primary" style="font-size: 20px;">Update Successfully &nbsp;<i class="fa fa-thumbs-up"></i></div>
+									</div>
+								</li><br><br>
+        					</ul>
+						</div>
+					<!--/ tabs -->
+				</div>
+   			</div>
+        </div>
+      </section>
+      <script type="text/javascript" src="angularjsctrl/managerCtrl.js"></script>
+      <div th:replace="footer"></div>
+      </div>
+      </section>
+      </div>
+     </th:block>

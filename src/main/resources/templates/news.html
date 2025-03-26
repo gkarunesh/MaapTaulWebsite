@@ -1,0 +1,60 @@
+    <th:block xmlns:th="https://www.thymeleaf.org">
+    <div th:fragment="introduction">
+    <div th:replace="header"></div>
+    <div th:replace="inner-header"></div>
+     	<div class="wrapper" id="skipCont"></div>
+      <!--/#skipCont-->
+      <section id="fontSize" class="wrapper body-wrapper">
+      <div class="bg-wrapper inner-wrapper">
+      <div class="breadcam-bg breadcam">
+         <div class="container common-container four_content ">
+            <ul>
+               <li><a href="/">Home </a></li>
+               <li><a href="#">News Clipping</a></li>
+            </ul>
+         </div>
+      </div>
+      <!--/#page-head-->
+      	<section id="paragraph" class="wrapper paragraph-wrapper">
+         <div class="content">
+     		<div class="p-2 bd-highlight" style="text-align: center; padding-top: 15px; color: #0095da;"><h2 class="page-title-dec">News Clipping</h2></div>
+     		<hr style="width: 75%; margin-left: auto; margin-right: auto;">
+    		<!--/#Table-->
+      <section id="tables" class="wrapper tables-wrapper" data-ng-app="homeApp" data-ng-controller="homeCtrl">
+         <div class="container common-container four_content ">
+            <div class="scroller" style="text-align: center;">
+           		<div class="card-block">
+                   <table class="table  table-bordered table-hover table-condensed responsive m-b-0" data-sortable>
+						<thead class="thead-dark">
+							<tr>
+								<th><b>Sr. no</b></th>
+								<th><b>Date</b></th>
+								<th><b>Newspaper name</b></th>
+								<th><b>Description</b></th>
+								<th><b>Action</b></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr data-ng-repeat="event in news | filter:any | orderBy:'-entryDate'">
+								<td style="text-align: center">{{$index + 1}}</td>
+								<td style="text-align: center" data-ng-bind="event.entryDate"></td>
+								<td style="text-align: center" data-ng-bind="event.groupOfKindOf"></td>
+								<td style="text-align: center; width : 600px;" data-ng-bind="event.description"></td>
+								<td style="text-align: center" ><a target="_blank" href="/lmd{{event.sourceUrl}}"  title="View"><i class='fa fa-file-pdf-o'
+										aria-hidden='true' style='color: red;'></i></a></td>
+							</tr>
+						</tbody>
+					</table>
+        </div>
+            </div>
+         </div>
+      </section>
+      <script type="text/javascript" src="angularjsctrl/homeCtrl.js"></script>  
+      <!--/.Table End-->	
+        </div>
+      </section>
+      <div th:replace="footer"></div>
+      </div>
+      </section>
+      </div>
+     </th:block>
